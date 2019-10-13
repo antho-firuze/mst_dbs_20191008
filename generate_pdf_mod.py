@@ -76,7 +76,10 @@ wc_man_codes = {
   "YO":"YOUNG",
 }
 
-def template_wc(c, wc_man_code):
+def abc(man_code):
+  print(wc_man_codes[man_code])
+
+def template_wc(c, man_code):
   c.translate(cm,cm)
   x = 0.5*cm
   y = 1*cm
@@ -261,10 +264,23 @@ def template_wc(c, wc_man_code):
   c.setFont("Tahoma", 9)
   c.drawCentredString(x+13.7*cm, y+24.6*cm, "PRODUCT ABBREVIATION")
   #LOGO
-  img = "files/CBM_E_TrakindoLogo.png"
-  img_read = utils.ImageReader(img)
-  img_width, img_height = img_read.getSize()
-  c.drawImage(img, x, y+24*cm, img_width / 16, img_height / 16, mask='auto')
+  import textwrap
+  if man_code == 'AA' or man_code == '':
+    img = "files/CBM_E_TrakindoLogo.png"
+    img_read = utils.ImageReader(img)
+    img_width, img_height = img_read.getSize()
+    c.drawImage(img, x, y+24*cm, img_width / 16, img_height / 16, mask='auto')
+  else:
+    c.setFillColor(black)
+    c.setFont("Lucida_Console", 13)
+    originalString = wc_man_codes[man_code]
+    if len(originalString) > 23:
+      wrap_text = textwrap.wrap(originalString, width=23)
+      c.drawString(x, y+25*cm, wrap_text[0])
+      c.drawString(x, y+24.5*cm, wrap_text[1])
+    else:
+      c.drawString(x, y+25*cm, originalString)
+
   c.setFont("Tahoma-Bold", 12)
   c.drawCentredString(x+8*cm, y+24.6*cm, "SERVICE")
   c.drawCentredString(x+8*cm, y+24.2*cm, "CLAIM")
@@ -356,8 +372,6 @@ def convert_to_pdf(source_file, output_file, doc_type, wc_man_code):
     xPage = 1
     lineNo = 0
     with open(source_file) as fp:
-      # mylist = [line.rstrip('\n') for line in fp]
-      # print(len(mylist))
       for line in fp:
         # line = line.replace('\n', '')
 
@@ -567,9 +581,10 @@ try:
             code = (filename[-1].upper()).replace('.TXT','')
             wc_man_code = code if code.isalpha() and not code.isnumeric() else wc_man_code
 
-          # print("{}.{}.{}.{}".format(doc_type, doc_no, doc_period, wc_man_code))
 
           if doc_no != 'XXXXXX' and doc_period != '000000':
+            # if wc_man_code != '': print(wc_man_codes[wc_man_code])
+            # print("{}.{}.{}.{}".format(doc_type, doc_no, doc_period, wc_man_code))
             # For destination directory
             directory = os.getenv('CONVERT_FOLDER_DEST') + '/'+ doc_type + '_' + doc_period + '/'
             if not os.path.exists(directory):

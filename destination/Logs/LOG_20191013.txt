@@ -1032,3 +1032,115 @@ An error occured...
 [+] Total files cannot be converted : 0
 [+] Execution time for converting : 0:00:00.02 seconds
 [+] Time finish : 2019-10-13 17:03:48.549111
+
+
+An error occured...
+''=============================================================
+[+] Time start : 2019-10-13 18:01:40.337933
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 0
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.02 seconds
+[+] Time finish : 2019-10-13 18:01:40.358875
+=============================================================
+[+] Time start : 2019-10-13 18:02:51.596869
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.03 seconds
+[+] Time finish : 2019-10-13 18:02:51.624794
+
+
+An error occured...
+template_wc() missing 1 required positional argument: 'wc_man_code'
+
+An error occured...
+'x'=============================================================
+[+] Time start : 2019-10-13 18:09:33.198817
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.66 seconds
+[+] Time finish : 2019-10-13 18:09:33.861046
+=============================================================
+[+] Time start : 2019-10-13 18:10:49.525999
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.80 seconds
+[+] Time finish : 2019-10-13 18:10:50.322867
+
+
+An error occured...
+''
+
+An error occured...
+''=============================================================
+[+] Time start : 2019-10-13 18:13:05.978432
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.38 seconds
+[+] Time finish : 2019-10-13 18:13:06.361407
+
+
+An error occured...
+''=============================================================
+[+] Time start : 2019-10-13 18:14:44.151946
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.30 seconds
+[+] Time finish : 2019-10-13 18:14:44.447157
+
+
+An error occured...
+''=============================================================
+[+] Time start : 2019-10-13 18:17:25.890024
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.03 seconds
+[+] Time finish : 2019-10-13 18:17:25.920942
+=============================================================
+[+] Time start : 2019-10-13 18:18:17.856200
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.70 seconds
+[+] Time finish : 2019-10-13 18:18:18.557326
+=============================================================
+[+] Time start : 2019-10-13 18:23:29.312393
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:02.09 seconds
+[+] Time finish : 2019-10-13 18:23:31.397814
+=============================================================
+[+] Time start : 2019-10-13 18:29:59.475875
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.59 seconds
+[+] Time finish : 2019-10-13 18:30:00.062308
+=============================================================
+[+] Time start : 2019-10-13 18:34:32.194190
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.63 seconds
+[+] Time finish : 2019-10-13 18:34:32.826485
+=============================================================
+[+] Time start : 2019-10-13 18:34:56.762707
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.46 seconds
+[+] Time finish : 2019-10-13 18:34:57.227462
+=============================================================
+[+] Time start : 2019-10-13 18:35:13.046730
+[+] Total [*.txt] files : 8
+[+] Total files can be converted : 8
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.87 seconds
+[+] Time finish : 2019-10-13 18:35:13.916404
