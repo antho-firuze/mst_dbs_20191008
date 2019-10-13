@@ -1,0 +1,31 @@
+1                                                                        1                                                           
+-                                                                                                                                    
+                                                             X                                                                       
+-      J211     BB01247               6030 BH       16JUN15             17MAY18                                                      
+-                                    0DHL30304     15026   H   15026 H      2.00                                                     
+0                                                                    8507838                                                         
+       PS45780     PS45780           56  7755       COMPLETED PSP    DS851374979                                                     
+-       SL.08FEB2018                   PT. CIPTA KRIDATAMA                                                                           
+-       AA          0DHL30304   100.00100.00  23.80                  L736464                                                         
+-                                                                                                                                    
+         .00        .00   .00       .00       .00          .00       .00 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+0      L   2.00  7000 023                               .00          .00  USD  2                                                     
+                             REPAIR MACHINE                                                                                          
+       COMPLETED PERFORM PS45780 SL.08FEB2018 REV.09APR2018.                                                                         
+       UPDATING THE DRIVE CONTROLLER AND BOARD CONTROL SYSTEM SOFT-                                                                  
+       WARE. TEST PERFORMANCED FOUND GOOD.                                                                                           
+       ------------------------------------------------------------                                                                  
+       *)ONLY CLAIM LABOR 2 HOURS FOR UPDATING THE DRIVE.                                                                            
+       ============================================================                                                                  
+       [TW 28MAY2018]                                                                                                                
+-                                       TOTAL CLAIM AMOUNT:               .00                                                        
+-          SETTLEMENTS:        SETTLEMENT NO       DATE      SETTLEMENT AMT                                                          
+                               C86SC 952196      30/05/18                 .00                                                        
+0                               *** END OF REPORT ***                                                                                
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+              .00      38.62        .00        .00        .00   C86SC 952196                                                         
+0      P.T. TRAKINDO UTAMA                                             28MAY18                                                       

@@ -1,0 +1,65 @@
+1                                                                        1                                                           
+-                                                                                                                                    
+                                                                            X                                                        
+-      J211     BB01240               6030 BH                 29NOV17   18MAY18                                                      
+-                                    0DHL30303     14849   H    1984 H      1.00                                                     
+0                                                                    8508044                                                         
+       541-5911    BRUSH             13  7320       AIR CONDITIONER  DS851375006                                                     
+-       PREMATURE WORN                 PT. CIPTA KRIDATAMA                                                                           
+-       AA          0DHL30303   100.00100.00  23.80                  L736612                                                         
+-                                                                                                                                    
+        1.00      19.31   .00       .00       .00          .00       .00 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+0      P   2.00   541-5911    BRUSH                     .01          .02  USD  2                                                     
+       ** WARRANTY PART MACHINE                                                                                                      
+          PURCHASE REFF/DATE : 8506341   / 29NOV2017                                                                                 
+          DATE INSTALLED/SMU : 29NOV2017 / 12865 Hrs                                                                                 
+          DATE FAILED/SMU    : 13MAY2018 / 14849 Hrs                                                                                 
+          PART LIFE          : 1984 Hrs (LESS THAN 6 MONTHS)                                                                         
+       PURCHASE DATA ATTACHED INTO SIMSI THROUGH WO NO:8508044.                                                                      
+       COMPLAINT:                                                                                                                    
+        AC WAS HOT.                                                                                                                  
+       CAUSE OF FAILURE:                                                                                                             
+        AFTER INSPECTING FOUND CARBON BRUSH PN.541-5911 AT                                                                           
+        PO#2 HAD PREMATURE WORN.                                                                                                     
+       CORRECTION:                                                                                                                   
+        REPLACED IT WITH NEW PARTS. TESTED FOUND GOOD.                                                                               
+       ------------------------------------------------------------                                                                  
+       PLEASE DON'T TREAT THIS CLAIM AS DUPLICATE.[4TH FAILURE]                                                                      
+       THIS IS REPEAT FAILURE OF 4870615 CABRON BRUSH PO2 ON SN                                                                      
+       DHL30303. HERE IS THE DETAIL:                                                                                                 
+       *) FIRST FAILURE WO.8506341, THIS WO WAS WARRANTY START DATE                                                                  
+        SINCE CUSTOMER FULL PAID.                                                                                                    
+       *) SECOND FAILURE WO.8506935, PART LIFE SHOULD BE 694 HRS.                                                                    
+       *) THIRD FAILURE WO.8507938, PART LIFE SHOULD BE 148 HRS AND                                                                  
+          ALREADY USED CAT PN.541-5911.                                                                                              
+-                                                                                                                                    
+0          147.92        .00        .00        .00        .00                                                                        
+0      P.T. TRAKINDO UTAMA                                             28MAY18                                                       
+1                                                                        2                                                           
+-                                                                                                                                    
+                                                                            X                                                        
+-      J211     BB01240               6030 BH                 29NOV17   18MAY18                                                      
+-                                    0DHL30303     14849   H    1984 H      1.00                                                     
+0                                                                    8508044                                                         
+       541-5911    BRUSH             13  7320       AIR CONDITIONER  DS851375006                                                     
+-       PREMATURE WORN                 PT. CIPTA KRIDATAMA                                                                           
+-       AA          0DHL30303   100.00100.00  23.80                  L736612                                                         
+-                                                                                                                                    
+        1.00      19.31   .00       .00       .00          .00       .00 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+0      ============================================================                                                                  
+       [TW 28MAY2018]                                                                                                                
+-                                       TOTAL CLAIM AMOUNT:               .01                                                        
+-          SETTLEMENTS:        SETTLEMENT NO       DATE      SETTLEMENT AMT                                                          
+                               C86SC 952454      31/05/18                 .00                                                        
+0                               *** END OF REPORT ***                                                                                
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+0          147.92        .00        .00        .00        .00   C86SC 952454                                                         
+0      P.T. TRAKINDO UTAMA                                             28MAY18                                                       

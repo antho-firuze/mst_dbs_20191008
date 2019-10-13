@@ -1,0 +1,84 @@
+=============================================================
+[+] Time start : 2019-10-09 10:49:05.598280
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.12 seconds
+[+] Time Finish : 2019-10-09 10:49:05.714289
+=============================================================
+[+] Time start : 2019-10-09 13:42:33.749723
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.07 seconds
+[+] Time Finish : 2019-10-09 13:42:33.821724
+=============================================================
+[+] Time start : 2019-10-09 13:43:25.128845
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.09 seconds
+[+] Time Finish : 2019-10-09 13:43:25.216845
+=============================================================
+[+] Time start : 2019-10-09 13:43:46.440279
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.09 seconds
+[+] Time Finish : 2019-10-09 13:43:46.528280
+=============================================================
+[+] Time start : 2019-10-09 13:44:39.768708
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.08 seconds
+[+] Time Finish : 2019-10-09 13:44:39.848704
+=============================================================
+[+] Time start : 2019-10-09 13:45:21.111323
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.09 seconds
+[+] Time Finish : 2019-10-09 13:45:21.200696
+=============================================================
+[+] Time start : 2019-10-09 13:46:30.937808
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.05 seconds
+[+] Time Finish : 2019-10-09 13:46:30.983168
+=============================================================
+[+] Time start : 2019-10-09 13:46:55.567701
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.08 seconds
+[+] Time Finish : 2019-10-09 13:46:55.651702
+=============================================================
+[+] Time start : 2019-10-09 13:47:55.597457
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.09 seconds
+[+] Time Finish : 2019-10-09 13:47:55.685456
+=============================================================
+[+] Time start : 2019-10-09 13:48:10.303998
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.07 seconds
+[+] Time Finish : 2019-10-09 13:48:10.374400
+=============================================================
+[+] Time start : 2019-10-09 13:52:24.894383
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.09 seconds
+[+] Time Finish : 2019-10-09 13:52:24.984636
+=============================================================
+[+] Time start : 2019-10-09 13:53:44.897215
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.11 seconds
+[+] Time Finish : 2019-10-09 13:53:45.004259
+=============================================================
+[+] Time start : 2019-10-09 15:46:23.798538
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.09 seconds
+[+] Time Finish : 2019-10-09 15:46:23.888900
+=============================================================
+[+] Time start : 2019-10-09 15:46:48.831284
+[+] Total converted PDF files : 1
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 200212 : 0:00:00.07 seconds
+[+] Time Finish : 2019-10-09 15:46:48.900620

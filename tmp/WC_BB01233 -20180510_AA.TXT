@@ -1,0 +1,103 @@
+1                                                                        1                                                           
+-                                                                                                                                    
+                                                             X                                                                       
+-      J211     BB01233               C27           00NIS00             30MAR18                                                      
+-                                    099Z00001         1   H       0 H     33.20                                                     
+0                                                                    8506132                                                         
+       260-6667    STUBSHAFT         56  7752       PARTS STOCK & SE DS851374660                                                     
+-       POOR MACHINING                 PT. TRAKINDO UTAMA PARTS DEPARTMENT                                                           
+-                               100.00100.00  23.80            BU5   L736932                                                         
+-                                                                                                                                    
+         .00        .00   .00       .00       .00          .00     13.30 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+0      P   1.00   142-5868    SEAL GP-CSHF              .00          .00  USD  2                                                     
+       P   1.00   225-1242    GASKET                    .01          .01  USD  2                                                     
+       P   2.00   541-0869    SHAFT-STUB                .02          .04  USD  2                                                     
+       L  33.20  1237 510                               .00          .00  USD  2                                                     
+                             REPLACE NEW STUB SHAFT                                                                                  
+       Submitted claim supported by service request with detail:                                                                     
+       S/R Number          : CRM-864876-N7T1                                                                                         
+       C/A Auth. Number    : 18GCZ0045                                                                                               
+       Date C/A Approval   : 22May2018                                                                                               
+       Approved By         : Dennis Delgado                                                                                          
+       Approval Code       : BU5                                                                                                     
+       Given CAT Approval  : $ 1,3850.70                                                                                             
+       -----------------------------------------------------------                                                                   
+       Complaint: Certain stub shafts within the rear gear train                                                                     
+        needs to replace on a new C27 engine with serial number                                                                      
+        TZR00144.                                                                                                                    
+       Cause: The existing stub shafts do not provide sufficient                                                                     
+        surface profile. If this condition is present, bushing a-                                                                    
+        dhesive wear may occur, which may possibly cause premature                                                                   
+        bushing wear and or engine failure.                                                                                          
+       Correction: Replaced the existing stub shafts with 541-0869                                                                   
+        Stub Shafts. Refer to Special Instruction M0082226, Removal                                                                  
+        Procedure, Step 8, through and including Installation Pro-                                                                   
+-                                                                                                                                    
+0          744.61     641.09        .00        .00        .00                                                                        
+0      P.T. TRAKINDO UTAMA                                             10MAY18                                                       
+0      DENNIS DELGADO                                                  22MAY18                                                       
+1                                                                        2                                                           
+-                                                                                                                                    
+                                                             X                                                                       
+-      J211     BB01233               C27           00NIS00             30MAR18                                                      
+-                                    099Z00001         1   H       0 H     33.20                                                     
+0                                                                    8506132                                                         
+       260-6667    STUBSHAFT         56  7752       PARTS STOCK & SE DS851374660                                                     
+-       POOR MACHINING                 PT. TRAKINDO UTAMA PARTS DEPARTMENT                                                           
+-                               100.00100.00  23.80            BU5   L736932                                                         
+-                                                                                                                                    
+         .00        .00   .00       .00       .00          .00     13.30 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+0       cedure, Step 14. Do not perform Step 3 in the Installation                                                                   
+        Procedure as the factory assembled PTO drive adapters will                                                                   
+        be reinstalled. The new stub shafts provided by CAT Batam                                                                    
+        facility.                                                                                                                    
+       Complication of Repair: The engine with S/N. TZR00144 was a                                                                   
+        new component purchased by Trakindo Parts Department. The                                                                    
+        dealer required 33.2 labor hours to complete this work so                                                                    
+        the new engine is ready to sell in very good condition.                                                                      
+       Commercial Justification: Regarding the preventive repair                                                                     
+        is not supported by standard parts warranty, Trakindo will                                                                   
+        be seeking CAT financial assistance for covering the rework                                                                  
+        cost under goodwill policy.                                                                                                  
+       Cost Split: 100% labor & parts costs claimed to Caterpillar.                                                                  
+       -----------------------------------------------------------                                                                   
+       All claim supporting documents were already attached into                                                                     
+       service request #CRM-864876-N7T1 for your reference.                                                                          
+       (EMP-29May2018)                                                                                                               
+-                                       TOTAL CLAIM AMOUNT:               .09                                                        
+-                                                                                                                                    
+-                                                                                                                                    
+0          744.61     641.09        .00        .00        .00                                                                        
+0      P.T. TRAKINDO UTAMA                                             10MAY18                                                       
+0      DENNIS DELGADO                                                  22MAY18                                                       
+1                                                                        3                                                           
+-                                                                                                                                    
+                                                             X                                                                       
+-      J211     BB01233               C27           00NIS00             30MAR18                                                      
+-                                    099Z00001         1   H       0 H     33.20                                                     
+0                                                                    8506132                                                         
+       260-6667    STUBSHAFT         56  7752       PARTS STOCK & SE DS851374660                                                     
+-       POOR MACHINING                 PT. TRAKINDO UTAMA PARTS DEPARTMENT                                                           
+-                               100.00100.00  23.80            BU5   L736932                                                         
+-                                                                                                                                    
+         .00        .00   .00       .00       .00          .00     13.30 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+           SETTLEMENTS:        SETTLEMENT NO       DATE      SETTLEMENT AMT                                                          
+                               C86SC 952796      01/06/18                 .09                                                        
+0                               *** END OF REPORT ***                                                                                
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+           744.61     641.09        .00        .00        .00   C86SC 952796                                                         
+0      P.T. TRAKINDO UTAMA                                             10MAY18                                                       
+0      DENNIS DELGADO                                                  22MAY18                                                       

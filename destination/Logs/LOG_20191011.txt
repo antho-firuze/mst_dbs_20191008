@@ -1,0 +1,6 @@
+=============================================================
+[+] Time start : 2019-10-11 22:51:11.639047
+[+] Total converted PDF files : 10
+[+] Total files can not be converted : 0
+[+] Execution time for converting file on period 201805 : 0:00:00.51 seconds
+[+] Time Finish : 2019-10-11 22:51:12.151637

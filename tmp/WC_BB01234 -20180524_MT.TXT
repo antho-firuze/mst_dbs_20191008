@@ -1,0 +1,63 @@
+1                                                                        1                                                           
+-                                                                                                                                    
+                                                                            X                                                        
+-      J211     BB01234               6030 BH                 07APR17   09MAY18                                                      
+-                                    0DHL30311     12482   H    4646 H      8.00                                                     
+0                                                                    8507527                                                         
+       248-5513    REGULATOR-TE      51  272-6669                    DS851374905                                                     
+-       REGULATOR STUCK                PT. CIPTA KRIDATAMA                                                                           
+-       AA          0DHL30311   100.00100.00  23.80                  L735763                                                         
+-                                                                                                                                    
+        8.00     154.48   .00       .00       .00          .00       .00 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+0      P   4.00   8T-1703     SEAL-O-RING               .00          .00  USD  2                                                     
+       P   2.00   107-5769    SEAL O RING               .00          .00  USD  2                                                     
+       P   3.00   109-0076    SEAL O RING               .00          .00  USD  2                                                     
+       P   1.00   200-6410    SEAL-O-RING               .00          .00  USD  2                                                     
+       P   2.00   231-4708    SEAL-O-RING               .00          .00  USD  2                                                     
+       P   2.00   248-5513    REGULATOR-TE              .00          .00  USD  2                                                     
+       ** WARRANTY PART MACHINE                                                                                                      
+          PURCHASE REFF/DATE  : 8504039     /  07APR2017                                                                             
+          DATE INSTALLED/SMU  : 07APR2017   /  7836Hrs                                                                               
+          DATE FAILED/SMU     : 26MAR2018   /  12482 Hrs                                                                             
+          PART LIFE           : 4646 Hrs (LESS THAN 12 MONTHS)                                                                       
+       PURCHASE DATA ATTACHED INTO SIMSI THROUGH WO NO:8507527.                                                                      
+       **                                                                                                                            
+       COMPLAINT: BCS DISPLAY SHOWED LEFT ENGINE TEMPERATURE WAS VE                                                                  
+        RY HIGH.                                                                                                                     
+       CAUSE: REGULATORS OF THE LEFT ENGINE HAVE STUCK CLOSE.                                                                        
+       CORRECTION: REPLACED STUCK REGULATORS AND ALL PARTS NEEDED                                                                    
+        WITH NEW ONES. TEST PERFORMANCED FOUND GOOD.                                                                                 
+       ============================================================                                                                  
+       [TW 24MAY2018]                                                                                                                
+-                                                                                                                                    
+-                                                                                                                                    
+0          122.10        .00        .00        .00        .00                                                                        
+0      P.T. TRAKINDO UTAMA                                             24MAY18                                                       
+1                                                                        2                                                           
+-                                                                                                                                    
+                                                                            X                                                        
+-      J211     BB01234               6030 BH                 07APR17   09MAY18                                                      
+-                                    0DHL30311     12482   H    4646 H      8.00                                                     
+0                                                                    8507527                                                         
+       248-5513    REGULATOR-TE      51  272-6669                    DS851374905                                                     
+-       REGULATOR STUCK                PT. CIPTA KRIDATAMA                                                                           
+-       AA          0DHL30311   100.00100.00  23.80                  L735763                                                         
+-                                                                                                                                    
+        8.00     154.48   .00       .00       .00          .00       .00 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+                                        TOTAL CLAIM AMOUNT:               .00                                                        
+-          SETTLEMENTS:        SETTLEMENT NO       DATE      SETTLEMENT AMT                                                          
+                               C86SC 950728      24/05/18                 .00                                                        
+0                               *** END OF REPORT ***                                                                                
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+           122.10        .00        .00        .00        .00   C86SC 950728                                                         
+0      P.T. TRAKINDO UTAMA                                             24MAY18                                                       

@@ -1,0 +1,61 @@
+1                                                                        1                                                           
+-                                                                                                                                    
+                                                                            X                                                        
+-      J211     BB01238               6030 BH                 07JAN18   02MAY18                                                      
+-                                    0DHL30312     11442   H    1182 H      3.00                                                     
+0                                                                    8507498                                                         
+       373-7052    VALVE-FAST F      19  1273       FUEL TANK        DS851374904                                                     
+-       LEAKING                        PT. CIPTA KRIDATAMA                                                                           
+-       AA          0DHL30312   100.00100.00  23.80                  L735776                                                         
+-                                                                                                                                    
+        3.00      57.93   .00       .00       .00          .00       .00 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+0      P   1.00   373-7052    VALVE-FAST F              .03          .03  USD  2                                                     
+       ** WARRANTY PART MACHINE                                                                                                      
+          PURCHASE REFF/DATE  : 8506405     /  07JAN2018                                                                             
+          DATE INSTALLED/SMU  : 07JAN2018   /  10260Hrs                                                                              
+          DATE FAILED/SMU     : 21MAR2018   /  11442 Hrs                                                                             
+          PART LIFE           : 1182 Hrs (LESS THAN 3 MONTHS)                                                                        
+       PURCHASE DATA ATTACHED INTO SIMSI THROUGH WO NO:8507498.                                                                      
+       **                                                                                                                            
+       COMPLAINT:                                                                                                                    
+        ENGINE SUDDENLY SHUTDOWN.                                                                                                    
+       CAUSE OF FAILURE:                                                                                                             
+        AFTER INSPECTING FOUND LH VALVE PN.373-7052 HAD                                                                              
+        STUCK .                                                                                                                      
+       CORRECTION:                                                                                                                   
+        REPLACED IT WITH NEW PART. TESTED FOUND GOOD.                                                                                
+       ============================================================                                                                  
+       [TW 24MAY2018]                                                                                                                
+-                                       TOTAL CLAIM AMOUNT:               .02                                                        
+-                                                                                                                                    
+-                                                                                                                                    
+0          387.25        .00        .00        .00        .00                                                                        
+0      P.T. TRAKINDO UTAMA                                             24MAY18                                                       
+1                                                                        2                                                           
+-                                                                                                                                    
+                                                                            X                                                        
+-      J211     BB01238               6030 BH                 07JAN18   02MAY18                                                      
+-                                    0DHL30312     11442   H    1182 H      3.00                                                     
+0                                                                    8507498                                                         
+       373-7052    VALVE-FAST F      19  1273       FUEL TANK        DS851374904                                                     
+-       LEAKING                        PT. CIPTA KRIDATAMA                                                                           
+-       AA          0DHL30312   100.00100.00  23.80                  L735776                                                         
+-                                                                                                                                    
+        3.00      57.93   .00       .00       .00          .00       .00 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+           SETTLEMENTS:        SETTLEMENT NO       DATE      SETTLEMENT AMT                                                          
+                               C86SC 950735      24/05/18                 .02                                                        
+0                               *** END OF REPORT ***                                                                                
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+           387.25        .00        .00        .00        .00   C86SC 950735                                                         
+0      P.T. TRAKINDO UTAMA                                             24MAY18                                                       
