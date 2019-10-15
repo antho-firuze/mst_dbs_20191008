@@ -1,6 +1,7 @@
 import datetime, time, sys, re
 import os
-from ftplib import FTP
+import threading
+# from ftplib import FTP
 # from datetime import datetime
 from calendar import monthrange
 from os.path import join, dirname
@@ -76,9 +77,6 @@ wc_man_codes = {
   "YO":"YOUNG",
 }
 
-def abc(man_code):
-  print(wc_man_codes[man_code])
-
 def template_wc(c, man_code):
   c.translate(cm,cm)
   x = 0.5*cm
@@ -91,21 +89,21 @@ def template_wc(c, man_code):
   c.setFont("Tahoma", 7)
   c.setLineWidth(1)
   #1 AUTHORIZER & DEALERSHIP
-  c.grid([x, x+4.5*cm, x+13.7*cm, x+18*cm],[y+0, y+1*cm, y+2*cm])
+  c.grid([x, x+5.1*cm, x+14.5*cm, x+18*cm],[y+0, y+1*cm, y+2*cm])
   c.drawCentredString(x+2.25*cm, y+0.7*cm, "AUTHORIZER'S NAME")
-  c.drawCentredString(x+9*cm, y+0.7*cm, "CLAIM AUTHORIZER'S SIGNATURE")
-  c.drawCentredString(x+15*cm, y+0.7*cm, "DATE")
+  c.drawCentredString(x+9.8*cm, y+0.7*cm, "CLAIM AUTHORIZER'S SIGNATURE")
+  c.drawCentredString(x+16.25*cm, y+0.7*cm, "DATE")
   c.drawCentredString(x+2.25*cm, y+1.7*cm, "DEALERSHIP NAME")
-  c.drawCentredString(x+9*cm, y+1.7*cm, "AUTHORIZED DEALER SIGNATURE(S)")
-  c.drawCentredString(x+15*cm, y+1.7*cm, "DATE")
+  c.drawCentredString(x+9.8*cm, y+1.7*cm, "AUTHORIZED DEALER SIGNATURE(S)")
+  c.drawCentredString(x+16.25*cm, y+1.7*cm, "DATE")
   #2 PARTS
-  c.grid([x, x+2.7*cm, x+4.9*cm, x+7.1*cm, x+9.5*cm, x+11.8*cm, x+18*cm],[y+2*cm, y+3*cm])
+  c.grid([x, x+2.9*cm, x+5.9*cm, x+8.1*cm, x+10.6*cm, x+13.2*cm, x+18*cm],[y+2*cm, y+3*cm])
   c.drawCentredString(x+1.4*cm, y+2.7*cm, "PARTS")
-  c.drawCentredString(x+3.8*cm, y+2.7*cm, "LABOR")
-  c.drawCentredString(x+6*cm, y+2.7*cm, "TRAVEL")
-  c.drawCentredString(x+8.3*cm, y+2.7*cm, "VEHICLE")
-  c.drawCentredString(x+10.7*cm, y+2.7*cm, "MISC.")
-  c.drawCentredString(x+13.9*cm, y+2.7*cm, "SETTLEMENT NOTICE")
+  c.drawCentredString(x+4.4*cm, y+2.7*cm, "LABOR")
+  c.drawCentredString(x+7*cm, y+2.7*cm, "TRAVEL")
+  c.drawCentredString(x+9.35*cm, y+2.7*cm, "VEHICLE")
+  c.drawCentredString(x+11.9*cm, y+2.7*cm, "MISC.")
+  c.drawCentredString(x+15.6*cm, y+2.7*cm, "SETTLEMENT NOTICE")
   #3 CLAIMED
   c.setLineWidth(2)
   c.grid([x, x+18*cm],[y+2*cm, y+3.5*cm])
@@ -116,40 +114,40 @@ def template_wc(c, man_code):
   c.grid([x, x+18*cm],[y+3.5*cm, y+12.9*cm, y+13.9*cm, y+14.6*cm, y+15.3*cm])
   c.setFont("Tahoma", 7)
   c.drawCentredString(x+0.5*cm, y+13.3*cm, "ID")
-  c.drawCentredString(x+1.5*cm, y+13.3*cm, "QTY")
-  c.drawCentredString(x+3.3*cm, y+13.3*cm, "PART NO")
-  c.drawCentredString(x+6.2*cm, y+13.3*cm, "DESCRIPTION")
+  c.drawCentredString(x+1.7*cm, y+13.3*cm, "QTY")
+  c.drawCentredString(x+3.7*cm, y+13.3*cm, "PART NO")
+  c.drawCentredString(x+6.9*cm, y+13.3*cm, "DESCRIPTION")
   # t = c.beginText()
   # t.setTextOrigin(x+8.8*cm, y+13.3*cm)
   # t.textLine('''DESC.\nCODE''')
   # c.drawText(t)
-  c.drawCentredString(x+8.8*cm, y+13.4*cm, "DESC.")
-  c.drawCentredString(x+8.8*cm, y+13.1*cm, "CODE")
-  c.drawCentredString(x+10.5*cm, y+13.3*cm, "RATE")
-  c.drawCentredString(x+13*cm, y+13.3*cm, "TOTAL")
-  c.drawCentredString(x+14.1*cm, y+13.3*cm, "CURR")
-  c.drawCentredString(x+15.2*cm, y+13.4*cm, "DEC")
-  c.drawCentredString(x+15.2*cm, y+13.1*cm, "POS")
+  c.drawCentredString(x+9.95*cm, y+13.4*cm, "DESC.")
+  c.drawCentredString(x+9.95*cm, y+13.1*cm, "CODE")
+  c.drawCentredString(x+12*cm, y+13.3*cm, "RATE")
+  c.drawCentredString(x+14.6*cm, y+13.3*cm, "TOTAL")
+  c.drawCentredString(x+16.3*cm, y+13.3*cm, "CURR")
+  c.drawCentredString(x+17.4*cm, y+13.4*cm, "DEC")
+  c.drawCentredString(x+17.4*cm, y+13.1*cm, "POS")
   #5 HOURS
-  c.grid([x, x+1.3*cm, x+3.5*cm, x+4.9*cm, x+7.1*cm, x+9.3*cm, x+11.8*cm],[y+15.3*cm, y+16.1*cm])
+  c.grid([x, x+1.8*cm, x+4.4*cm, x+6.2*cm, x+8.8*cm, x+11.1*cm, x+13.7*cm],[y+15.3*cm, y+16.1*cm])
   c.setFont("Tahoma", 7)
-  c.drawCentredString(x+0.6*cm, y+15.8*cm, "HOURS")
-  c.drawCentredString(x+2.3*cm, y+15.8*cm, "AMOUNT")
-  c.drawCentredString(x+4.2*cm, y+15.8*cm, "HOURS")
-  c.drawCentredString(x+6.1*cm, y+15.8*cm, "AMOUNT")
-  c.drawCentredString(x+8.5*cm, y+15.8*cm, "MI/KM")
-  c.drawCentredString(x+11*cm, y+15.8*cm, "AMOUNT")
-  c.drawCentredString(x+13*cm, y+16.2*cm, "OTHER")
-  c.drawCentredString(x+13*cm, y+15.9*cm, "AMOUNT")
-  c.drawCentredString(x+14.8*cm, y+16.2*cm, "CURR")
-  c.drawCentredString(x+14.8*cm, y+15.9*cm, "CODE")
-  c.drawCentredString(x+16*cm, y+16.2*cm, "DEC")
-  c.drawCentredString(x+16*cm, y+15.9*cm, "POS")
+  c.drawCentredString(x+0.9*cm, y+15.8*cm, "HOURS")
+  c.drawCentredString(x+3.1*cm, y+15.8*cm, "AMOUNT")
+  c.drawCentredString(x+5.3*cm, y+15.8*cm, "HOURS")
+  c.drawCentredString(x+7.5*cm, y+15.8*cm, "AMOUNT")
+  c.drawCentredString(x+9.95*cm, y+15.8*cm, "MI/KM")
+  c.drawCentredString(x+12.4*cm, y+15.8*cm, "AMOUNT")
+  c.drawCentredString(x+14.6*cm, y+16.2*cm, "OTHER")
+  c.drawCentredString(x+14.6*cm, y+15.9*cm, "AMOUNT")
+  c.drawCentredString(x+16.2*cm, y+16.2*cm, "CURR")
+  c.drawCentredString(x+16.2*cm, y+15.9*cm, "CODE")
+  c.drawCentredString(x+17.4*cm, y+16.2*cm, "DEC")
+  c.drawCentredString(x+17.4*cm, y+15.9*cm, "POS")
   #6 REPAIR
-  c.grid([x, x+3.5*cm, x+7.1*cm, x+11.8*cm, x+14.1*cm, x+15.6*cm, x+18*cm],[y+15.3*cm, y+16.6*cm])
-  c.drawCentredString(x+1.8*cm, y+16.3*cm, "REPAIR")
-  c.drawCentredString(x+5.2*cm, y+16.3*cm, "TRAVEL")
-  c.drawCentredString(x+9.5*cm, y+16.3*cm, "MILEAGE")
+  c.grid([x, x+4.4*cm, x+8.8*cm, x+13.7*cm, x+15.6*cm, x+16.8*cm, x+18*cm],[y+15.3*cm, y+16.6*cm])
+  c.drawCentredString(x+2.2*cm, y+16.3*cm, "REPAIR")
+  c.drawCentredString(x+6.6*cm, y+16.3*cm, "TRAVEL")
+  c.drawCentredString(x+11.25*cm, y+16.3*cm, "MILEAGE")
   #7 NON-CLAIMED
   c.setLineWidth(2)
   c.grid([x, x+18*cm],[y+15.3*cm, y+17.2*cm])
@@ -157,98 +155,98 @@ def template_wc(c, man_code):
   c.drawCentredString(x+8.3*cm, y+16.8*cm, "NON-CLAIMED DEALER EXPENSES")
   #8 
   c.setLineWidth(1)
-  c.grid([x, x+1.6*cm, x+2.7*cm, x+5.3*cm, x+6.6*cm, x+8.3*cm],[y+17.2*cm, y+18.2*cm])
+  c.grid([x, x+1.6*cm, x+2.7*cm, x+6.1*cm, x+7.6*cm, x+9.1*cm],[y+17.2*cm, y+18.2*cm])
   c.setFont("Tahoma", 7)
   c.drawCentredString(x+0.8*cm, y+17.9*cm, "MAKE")
   c.drawCentredString(x+2.2*cm, y+17.9*cm, "CAB")
-  c.drawCentredString(x+4*cm, y+17.9*cm, "SERIAL NO")
-  c.drawCentredString(x+6*cm, y+17.9*cm, "PARTS")
-  c.drawCentredString(x+7.5*cm, y+17.9*cm, "LABOR")
+  c.drawCentredString(x+4.4*cm, y+17.9*cm, "SERIAL NO")
+  c.drawCentredString(x+6.85*cm, y+17.9*cm, "PARTS")
+  c.drawCentredString(x+8.35*cm, y+17.9*cm, "LABOR")
   c.setFont("Tahoma", 9)
-  c.drawCentredString(x+9.1*cm, y+18.3*cm, "IMPORT")
-  c.drawCentredString(x+10.8*cm, y+18.3*cm, "CLAIM")
-  c.drawCentredString(x+12.5*cm, y+18.3*cm, "POLICY")
-  c.drawCentredString(x+14.8*cm, y+18.3*cm, "CATERPILLAR")
+  c.drawCentredString(x+10*cm, y+18.3*cm, "IMPORT")
+  c.drawCentredString(x+11.95*cm, y+18.3*cm, "CLAIM")
+  c.drawCentredString(x+13.8*cm, y+18.3*cm, "POLICY")
+  c.drawCentredString(x+16.3*cm, y+18.3*cm, "CATERPILLAR")
   c.setFont("Tahoma", 7)
-  c.drawCentredString(x+9.1*cm, y+18*cm, "PERCENT")
-  c.drawCentredString(x+10.8*cm, y+18*cm, "AUTHO.NO.")
-  c.drawCentredString(x+12.5*cm, y+18*cm, "CODE")
-  c.drawCentredString(x+14.8*cm, y+18*cm, "CLAIM NO.")
+  c.drawCentredString(x+10*cm, y+18*cm, "PERCENT")
+  c.drawCentredString(x+11.95*cm, y+18*cm, "AUTHO.NO.")
+  c.drawCentredString(x+13.8*cm, y+18*cm, "CODE")
+  c.drawCentredString(x+16.3*cm, y+18*cm, "CLAIM NO.")
   #9
-  c.grid([x, x+5.3*cm, x+8.3*cm, x+10*cm, x+11.7*cm, x+13.3*cm, x+18*cm],[y+17.2*cm, y+18.7*cm])
+  c.grid([x, x+6.1*cm, x+9.1*cm, x+10.9*cm, x+13*cm, x+14.6*cm, x+18*cm],[y+17.2*cm, y+18.7*cm])
   c.setFillColor(green, 0.3)
-  c.rect(x+13.3*cm, y+17.2*cm, 3.2*cm, 1.5*cm, fill=1)
+  # c.rect(x+13.3*cm, y+17.2*cm, 3.2*cm, 1.5*cm, fill=1)
   c.setFillColor(green)
   c.setFont("Tahoma", 9)
-  c.drawCentredString(x+2.7*cm, y+18.3*cm, "RELATED EQIPMENT")
-  c.drawCentredString(x+6.7*cm, y+18.3*cm, "CUST.CREDIT%")
+  c.drawCentredString(x+3.05*cm, y+18.3*cm, "RELATED EQIPMENT")
+  c.drawCentredString(x+7.6*cm, y+18.3*cm, "CUST.CREDIT%")
   #10
   c.grid([x, x+6.7*cm, x+18*cm],[y+18.7*cm, y+19.8*cm])
   c.setFont("Tahoma", 9)
   c.drawCentredString(x+3.3*cm, y+19.5*cm, "FINDINGS/COMMENTS")
   c.drawCentredString(x+11.5*cm, y+19.5*cm, "FOR DEALER USE")
   #11.1 s/d 11.4
-  c.grid([x, x+2.7*cm, x+6*cm],[y+19.8*cm, y+20.6*cm])
-  c.grid([x+6*cm, x+7*cm],[y+19.8*cm, y+21.1*cm])
-  c.grid([x+7*cm, x+10*cm, x+13.3*cm],[y+19.8*cm, y+20.6*cm])
-  c.grid([x+13.3*cm, x+18*cm],[y+19.8*cm, y+21.1*cm])
+  c.grid([x, x+2.7*cm, x+6.9*cm],[y+19.8*cm, y+20.6*cm])  # PART NO | PART NAME
+  c.grid([x+6.9*cm, x+8.2*cm],[y+19.8*cm, y+21.1*cm])     # DESC
+  c.grid([x+8.2*cm, x+10.5*cm, x+14.7*cm],[y+19.8*cm, y+20.6*cm]) # GROUP NO | GROUP NAME
+  c.grid([x+14.7*cm, x+18*cm],[y+19.8*cm, y+21.1*cm])
   c.setFillColor(green, 0.3)
-  c.rect(x+2.7*cm, y+19.8*cm, 3.3*cm, 0.8*cm, fill=1)
-  c.rect(x+10*cm, y+19.8*cm, 3.3*cm, 0.8*cm, fill=1)
+  c.rect(x+2.7*cm, y+19.8*cm, 4.2*cm, 0.8*cm, fill=1)
+  c.rect(x+10.5*cm, y+19.8*cm, 4.2*cm, 0.8*cm, fill=1)
   c.setFillColor(green)
   c.setFont("Tahoma", 7)
   c.drawCentredString(x+1.4*cm, y+20.3*cm, "PART NO")
-  c.drawCentredString(x+4.3*cm, y+20.3*cm, "PART NAME")
-  c.drawCentredString(x+6.5*cm, y+20.4*cm, "CODE")
-  c.drawCentredString(x+8.5*cm, y+20.3*cm, "GROUP NO.")
-  c.drawCentredString(x+11.6*cm, y+20.3*cm, "GROUP NAME")
+  c.drawCentredString(x+4.8*cm, y+20.3*cm, "PART NAME")
+  c.drawCentredString(x+7.5*cm, y+20.4*cm, "CODE")
+  c.drawCentredString(x+9.3*cm, y+20.3*cm, "GROUP NO.")
+  c.drawCentredString(x+12.6*cm, y+20.3*cm, "GROUP NAME")
   #12
-  c.grid([x, x+6*cm],[y+19.8*cm, y+21.1*cm])
-  c.grid([x+7*cm, x+13.3*cm],[y+19.8*cm, y+21.1*cm])
+  c.grid([x, x+6.9*cm],[y+19.8*cm, y+21.1*cm])
+  c.grid([x+8.2*cm, x+14.7*cm],[y+19.8*cm, y+21.1*cm])
   c.setFont("Tahoma", 9)
-  c.drawCentredString(x+3*cm, y+20.7*cm, "PART CAUSING FAILURE")
-  c.drawCentredString(x+6.5*cm, y+20.7*cm, "DESC")
-  c.drawCentredString(x+10.2*cm, y+20.7*cm, "GROUP CONTAINING FAILED PART")
+  c.drawCentredString(x+3.3*cm, y+20.7*cm, "PART CAUSING FAILURE")
+  c.drawCentredString(x+7.5*cm, y+20.7*cm, "DESC")
+  c.drawCentredString(x+11.5*cm, y+20.7*cm, "GROUP CONTAINING FAILED PART")
   #13
-  c.grid([x, x+1.5*cm, x+4.5*cm],[y+21.1*cm, y+21.9*cm])
+  c.grid([x, x+1.9*cm, x+4.7*cm],[y+21.1*cm, y+21.9*cm])
   c.setFont("Tahoma", 7)
-  c.drawCentredString(x+0.8*cm, y+21.6*cm, "CODE")
-  c.drawCentredString(x+3*cm, y+21.6*cm, "CLAIM NO")
-  c.drawCentredString(x+5.4*cm, y+21.7*cm, "TYPE")
-  c.drawCentredString(x+7.3*cm, y+21.7*cm, "SERIAL NO")
-  c.drawCentredString(x+9.7*cm, y+21.7*cm, "HR/MI/KM")
-  c.drawCentredString(x+12.3*cm, y+21.7*cm, "HR/MI/KM")
-  c.drawCentredString(x+14.8*cm, y+21.7*cm, "HOURS")
+  c.drawCentredString(x+0.9*cm, y+21.6*cm, "CODE")
+  c.drawCentredString(x+3.3*cm, y+21.6*cm, "CLAIM NO")
+  c.drawCentredString(x+5.9*cm, y+21.7*cm, "TYPE")
+  c.drawCentredString(x+8.4*cm, y+21.7*cm, "SERIAL NO")
+  c.drawCentredString(x+11.2*cm, y+21.7*cm, "HR/MI/KM")
+  c.drawCentredString(x+14*cm, y+21.7*cm, "HR/MI/KM")
+  c.drawCentredString(x+16.7*cm, y+21.7*cm, "HOURS")
   #14
-  c.grid([x, x+4.5*cm, x+6.3*cm, x+8.2*cm, x+11.2*cm, x+13.2*cm, x+18*cm],[y+21.1*cm, y+22.4*cm])
+  c.grid([x, x+4.7*cm, x+7.1*cm, x+10*cm, x+12.9*cm, x+15.3*cm, x+18*cm],[y+21.1*cm, y+22.4*cm])
   c.setFont("Tahoma", 9)
-  c.drawCentredString(x+2.3*cm, y+22*cm, "INITIAL DEALER")
-  c.drawCentredString(x+5.4*cm, y+22*cm, "COVERAGE")
-  c.drawCentredString(x+7.3*cm, y+22*cm, "PROD ID")
-  c.drawCentredString(x+9.7*cm, y+22*cm, "PRODUCT")
-  c.drawCentredString(x+12.3*cm, y+22*cm, "PARTS")
-  c.drawCentredString(x+14.8*cm, y+22*cm, "REPAIR")
+  c.drawCentredString(x+2.4*cm, y+22*cm, "INITIAL DEALER")
+  c.drawCentredString(x+5.9*cm, y+22*cm, "COVERAGE")
+  c.drawCentredString(x+8.4*cm, y+22*cm, "PROD ID")
+  c.drawCentredString(x+11.2*cm, y+22*cm, "PRODUCT")
+  c.drawCentredString(x+14*cm, y+22*cm, "PARTS")
+  c.drawCentredString(x+16.7*cm, y+22*cm, "REPAIR")
   #15
-  c.grid([x, x+1.5*cm, x+4.5*cm, x+6.3*cm, x+9.2*cm, x+11.4*cm, x+13.7*cm, x+18*cm],[y+22.4*cm, y+23.7*cm])
+  c.grid([x, x+1.9*cm, x+4.7*cm, x+6.6*cm, x+10*cm, x+12.7*cm, x+15.3*cm, x+18*cm],[y+22.4*cm, y+23.7*cm])
   c.setFillColor(green, 0.3)
-  c.rect(x+6.3*cm, y+22.4*cm, 2.9*cm, 1.3*cm, fill=1)
+  c.rect(x+6.6*cm, y+22.4*cm, 3.4*cm, 1.3*cm, fill=1)
   c.setFillColor(green)
   c.setFont("Tahoma", 7)
-  c.drawCentredString(x+0.8*cm, y+23*cm, "CODE")
-  c.drawCentredString(x+3.1*cm, y+23*cm, "CLAIM NO")
-  c.drawCentredString(x+5.5*cm, y+23*cm, "CODE")
-  c.drawCentredString(x+7.8*cm, y+23*cm, "MODEL NO")
-  c.drawCentredString(x+10.3*cm, y+23*cm, "DDMMMYY")
-  c.drawCentredString(x+12.5*cm, y+23*cm, "DDMMMYY")
-  c.drawCentredString(x+15*cm, y+23*cm, "DDMMMYY")
+  c.drawCentredString(x+0.9*cm, y+23*cm, "CODE")
+  c.drawCentredString(x+3.3*cm, y+23*cm, "CLAIM NO")
+  c.drawCentredString(x+5.6*cm, y+23*cm, "CODE")
+  c.drawCentredString(x+8.4*cm, y+23*cm, "MODEL NO")
+  c.drawCentredString(x+11.4*cm, y+23*cm, "DDMMMYY")
+  c.drawCentredString(x+14*cm, y+23*cm, "DDMMMYY")
+  c.drawCentredString(x+16.7*cm, y+23*cm, "DDMMMYY")
   c.setFont("Tahoma", 9)
-  c.drawCentredString(x+0.8*cm, y+23.3*cm, "DEALER")
-  c.drawCentredString(x+3.1*cm, y+23.3*cm, "DEALER")
-  c.drawCentredString(x+5.5*cm, y+23.3*cm, "TEPS")
-  c.drawCentredString(x+7.8*cm, y+23.3*cm, "SALES")
-  c.drawCentredString(x+10.3*cm, y+23.3*cm, "DELIVERY")
-  c.drawCentredString(x+12.5*cm, y+23.3*cm, "PARTS START")
-  c.drawCentredString(x+15*cm, y+23.3*cm, "REPAIR DATE")
+  c.drawCentredString(x+0.9*cm, y+23.3*cm, "DEALER")
+  c.drawCentredString(x+3.3*cm, y+23.3*cm, "DEALER")
+  c.drawCentredString(x+5.6*cm, y+23.3*cm, "TEPS")
+  c.drawCentredString(x+8.4*cm, y+23.3*cm, "SALES")
+  c.drawCentredString(x+11.4*cm, y+23.3*cm, "DELIVERY")
+  c.drawCentredString(x+14*cm, y+23.3*cm, "PARTS START")
+  c.drawCentredString(x+16.7*cm, y+23.3*cm, "REPAIR DATE")
   #16
   c.grid([x+11*cm, x+11.8*cm, x+12.6*cm, x+13.4*cm, x+14.2*cm, x+15*cm, x+15.8*cm, x+18*cm],[y+23.7*cm, y+24.5*cm])
   c.setFont("Tahoma", 7)
@@ -289,8 +287,8 @@ def template_wc(c, man_code):
 
 def template_inv(c):
   c.translate(cm,cm)
-  x = 1*cm
-  y = 1*cm
+  x = 0*cm
+  y = 2.5*cm
   # LOGO
   img = "files/CBM_E_TrakindoLogo.png"
   img_read = utils.ImageReader(img)
@@ -301,13 +299,13 @@ def template_inv(c):
   c.drawString(x+3.2*cm, y+23.7*cm, 'PTTrakindo Utama')
 	# 2
   c.setFont('Univers_67_Condensed_Bold', 11)
-  c.drawString(x+11*cm, y+24*cm, 'FAKTUR PENJUALAN')
+  c.drawString(x+3.2*cm, y+21.8*cm, 'FAKTUR PENJUALAN')
   c.setFont('Univers_57_Condensed', 11)
-  c.drawString(x+14.5*cm, y+24*cm, ' / INVOICE') 
+  c.drawString(x+6.6*cm, y+21.8*cm, ' / INVOICE') 
   # 3
   c.setFont('Univers_57_Condensed', 11)
-  c.drawString(x+3.2*cm, y+22*cm, 'SOLD TO')
-  c.drawString(x+12.4*cm, y+22*cm, 'CONSIGNED TO')
+  c.drawString(x+3.2*cm, y+21*cm, 'SOLD TO')
+  c.drawString(x+12.4*cm, y+21*cm, 'CONSIGNED TO')
   # 4
   strFooter1 = 'Barang-barang tidak boleh dikembalikan. Keberatan/pengaduan tidak dilayani jika barang telah keluar dari gudang kami'
   strFooter2 = 'Goods are not returnable. Claims will not be accepted once goods have left our ware house'
@@ -336,9 +334,10 @@ def convert_to_pdf(source_file, output_file, doc_type, wc_man_code):
   
   if doc_type == 'INV':
     xx = -0.5*cm
-    initY = yy = 24.5*cm
+    initY = yy = 24*cm
     lineSpacing = 0.5*cm
     firstPage = True
+    lineNo = 0
     with open(source_file) as fp:
       for line in fp:
 
@@ -347,20 +346,49 @@ def convert_to_pdf(source_file, output_file, doc_type, wc_man_code):
           if firstPage: 
             template_inv(canv) 
           else:
+            lineNo = 0
             canv.showPage()
             template_inv(canv) 
 
-          canv.setFillColor(black)
-          canv.setFont('Courier', 11)
-          canv.drawString(xx, yy, line[1:])
-          yy = yy-lineSpacing
+        if line[0] == '0':
+          if lineNo < 5:
+            canv.setFillColor(black)
+            canv.setFont('Courier', 11)
+            yy = yy-lineSpacing
+            canv.drawString(xx, yy, line[1:])
+          elif line.find('BRANCH:') > -1:
+            canv.setFillColor(black)
+            canv.setFont('Courier', 11)
+            yy = yy-lineSpacing*2
+            canv.drawString(xx, yy, line[1:])
+          elif line.find('PARTS SALES PERSON') > -1:
+            canv.setFillColor(black)
+            canv.setFont('Courier', 11)
+            yy = yy-lineSpacing*2
+            canv.drawString(xx, yy, line[1:])
+          else:
+            canv.setFillColor(black)
+            canv.setFont('Courier', 11)
+            yy = yy-lineSpacing
+            canv.drawString(xx, yy, line[1:])
 
-        else:
-          canv.setFillColor(black)
-          canv.setFont('Courier', 11)
-          canv.drawString(xx, yy, line[1:])
-          yy = yy-lineSpacing
+        if line[0] == '-' or line[0] == ' ':
+          if lineNo == 1:
+            canv.setFillColor(black)
+            canv.setFont('Courier', 11)
+            canv.drawString(xx, yy+1.7*cm, line[1:])
+          elif line.find('BRANCH:') > -1:
+            canv.setFillColor(black)
+            canv.setFont('Courier', 11)
+            yy = yy-lineSpacing*2
+            canv.drawString(xx, yy, line[1:])
+          else: 
+            canv.setFillColor(black)
+            canv.setFont('Courier', 11)
+            yy = yy-lineSpacing
+            canv.drawString(xx, yy, line[1:])
 
+        lineNo += 1
         firstPage = False
 
   elif doc_type == 'WC':
@@ -373,7 +401,6 @@ def convert_to_pdf(source_file, output_file, doc_type, wc_man_code):
     lineNo = 0
     with open(source_file) as fp:
       for line in fp:
-        # line = line.replace('\n', '')
 
         if line[0] == '1':
           yy = initY
@@ -521,16 +548,6 @@ def convert_to_pdf(source_file, output_file, doc_type, wc_man_code):
   except Exception as e:
     exit('[+] ' + str(e))
 
-# Start timer
-start_datetime = datetime.datetime.now()
-start_time = time.time()
-
-# Logo on header
-if os.getenv('CONVERT_LOGO') == 'TRUE':
-	img = os.getenv('CONVERT_LOGO_IMG')
-	img_read = utils.ImageReader(img)
-	img_width, img_height = img_read.getSize()
-	
 def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
 
@@ -542,8 +559,12 @@ def add_months(sourcedate, months):
     return datetime.date(year, month, day)
 
 try:
+  # Start timer
+  start_datetime = datetime.datetime.now()
+  start_time = time.time()
+  # Document Type
   doc_types = ['INV','WC']
-  doc_no_prefix = ['AR','AS','BB','BC']
+  # Period
   period_f = datetime.date(2002,1,1)
   period_t = datetime.date(2018,5,1)
   months = diff_month(period_t, period_f)+1
@@ -560,39 +581,43 @@ try:
       # filetype=*.txt
       if file.lower().endswith(".txt"):
         # Sanitize filename
-        filename = re.sub(r'\s', '', file)
+        filename = (file.upper()).replace('.TXT','')
+        filename = re.sub(r'\s', '', filename)
         filename = re.sub(r'[-]', '_', filename)
         filename = filename.split('_')
         doc_type = filename[0]
         doc_no = 'XXXXXX'
         doc_period = '000000'
+        doc_period_ori = '00000000'
         wc_man_code = ''
         n = 0
         for x in filename: 
           if n > 0:
             # WC_BB01234 -20180524_MT
-            # doc_no = x if x[:2] in doc_no_prefix else doc_no
             doc_no = x if x.isalnum() and not x.isnumeric() and not x.isalpha() else doc_no
-            doc_period = x[:6] if x[:6] in periods else doc_period
+            if x[:6] in periods:
+              doc_period = x[:6] 
+              doc_period_ori = x
           n += 1
 
         if doc_type in doc_types:
           if doc_type == 'WC':
-            code = (filename[-1].upper()).replace('.TXT','')
+            code = filename[-1]
             wc_man_code = code if code.isalpha() and not code.isnumeric() else wc_man_code
 
-
           if doc_no != 'XXXXXX' and doc_period != '000000':
-            # if wc_man_code != '': print(wc_man_codes[wc_man_code])
-            # print("{}.{}.{}.{}".format(doc_type, doc_no, doc_period, wc_man_code))
             # For destination directory
             directory = os.getenv('CONVERT_FOLDER_DEST') + '/'+ doc_type + '_' + doc_period + '/'
             if not os.path.exists(directory):
               os.makedirs(directory)
             
             source_file = root + '\\' + file
-            output_file = directory + '%s_%s_%s.pdf' % (doc_type, doc_no, doc_period)
-            convert_to_pdf(source_file, output_file, doc_type, wc_man_code)
+            output_file = directory + '%s_%s_%s.pdf' % (doc_type, doc_no, doc_period_ori)
+            threads = []
+            t = threading.Thread(target=convert_to_pdf, args=(source_file, output_file, doc_type, wc_man_code,))
+            threads.append(t)
+            t.start()
+            # convert_to_pdf(source_file, output_file, doc_type, wc_man_code)
 
             successFile += 1
           elif doc_no == 'XXXXXX':
