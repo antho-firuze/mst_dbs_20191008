@@ -1,3 +1,13 @@
+# ======================================================
+# Python Script for convertion (txt) file to (pdf) file 
+#
+# Created By  : Hertanto Purwanto
+# Email       : antho.firuze@gmail.com
+# Created at  : 2019-10-11
+# File name   : generate_pdf_mod.py
+# Version     : 1.2
+# ======================================================
+
 import datetime, time, sys, re
 import os
 import os.path
