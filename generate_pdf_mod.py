@@ -186,9 +186,11 @@ def template_wc(c, man_code):
   c.drawCentredString(x+13.8*cm, y+18*cm, "CODE")
   c.drawCentredString(x+16.3*cm, y+18*cm, "CLAIM NO.")
   #9
-  c.grid([x, x+6.1*cm, x+9.1*cm, x+10.9*cm, x+13*cm, x+14.6*cm, x+18*cm],[y+17.2*cm, y+18.7*cm])
   c.setFillColor(green, 0.3)
-  # c.rect(x+13.3*cm, y+17.2*cm, 3.2*cm, 1.5*cm, fill=1)
+  c.setStrokeColor(white)
+  c.rect(x+14.6*cm, y+17.2*cm, 3.4*cm, 1.5*cm, fill=1)
+  c.setStrokeColor(green)
+  c.grid([x, x+6.1*cm, x+9.1*cm, x+10.9*cm, x+13*cm, x+14.6*cm, x+18*cm],[y+17.2*cm, y+18.7*cm])
   c.setFillColor(green)
   c.setFont("Tahoma", 9)
   c.drawCentredString(x+3.05*cm, y+18.3*cm, "RELATED EQIPMENT")
