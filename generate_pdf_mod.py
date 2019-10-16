@@ -1,5 +1,7 @@
 import datetime, time, sys, re
 import os
+import os.path
+import pathlib
 import threading
 # from ftplib import FTP
 # from datetime import datetime
@@ -638,6 +640,11 @@ try:
             
             source_file = root + '\\' + file
             output_file = directory + '%s_%s_%s.pdf' % (doc_type, doc_no, doc_period_ori)
+
+            # Check the file is exists
+            # if not os.path.isfile(output_file):
+
+            # EXECUTE THE PROCESS
             threads = []
             t = threading.Thread(target=convert_to_pdf, args=(source_file, output_file, doc_type, wc_man_code,))
             threads.append(t)
