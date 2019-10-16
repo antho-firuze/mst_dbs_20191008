@@ -13,7 +13,7 @@ from reportlab.pdfgen.canvas import Canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import stringWidth
-from reportlab.lib.colors import pink, black, red, blue, green
+from reportlab.lib.colors import pink, black, red, blue, green, white
 #from multiprocessing import Pool
 #import itertools
 #from shutil import copyfile
@@ -84,7 +84,7 @@ def template_wc(c, man_code):
   c.setStrokeColor(green)
   c.setFillColor(red)
   c.setFont("Tahoma", 9)
-  c.drawCentredString(x+8.3*cm, y-0.5*cm, "DEALER CLAIM COPY")
+  c.drawCentredString(x+9*cm, y-0.5*cm, "DEALER CLAIM COPY")
   c.setFillColor(green)
   c.setFont("Tahoma", 7)
   c.setLineWidth(1)
@@ -111,7 +111,7 @@ def template_wc(c, man_code):
   c.drawCentredString(x+8.3*cm, y+3.1*cm, "CLAIMED DEALER EXPENSES (DEALER USE)")
   #4 REPETITION
   c.setLineWidth(1)
-  c.grid([x, x+18*cm],[y+3.5*cm, y+12.9*cm, y+13.9*cm, y+14.6*cm, y+15.3*cm])
+  c.grid([x, x+18*cm],[y+3.5*cm, y+12.9*cm, y+13.7*cm, y+14.5*cm, y+15.3*cm])
   c.setFont("Tahoma", 7)
   c.drawCentredString(x+0.5*cm, y+13.3*cm, "ID")
   c.drawCentredString(x+1.7*cm, y+13.3*cm, "QTY")
@@ -128,8 +128,18 @@ def template_wc(c, man_code):
   c.drawCentredString(x+16.3*cm, y+13.3*cm, "CURR")
   c.drawCentredString(x+17.4*cm, y+13.4*cm, "DEC")
   c.drawCentredString(x+17.4*cm, y+13.1*cm, "POS")
+  c.setFont("Tahoma", 9)
+  c.drawCentredString(x+9*cm, y+14.95*cm, "FAILURE SUMMARY - 120SPACES MAXIMUM (60 CHARACTERS PER LINE)")
   #5 HOURS
-  c.grid([x, x+1.8*cm, x+4.4*cm, x+6.2*cm, x+8.8*cm, x+11.1*cm, x+13.7*cm],[y+15.3*cm, y+16.1*cm])
+  # c.grid([x, x+1.8*cm, x+4.4*cm, x+6.2*cm, x+8.8*cm, x+11.1*cm, x+13.7*cm],[y+15.3*cm, y+16.1*cm])
+  c.line(x+1.8*cm, y+15.3*cm, x+1.8*cm, y+16.1*cm)
+  c.line(x+6.2*cm, y+15.3*cm, x+6.2*cm, y+16.1*cm)
+  c.line(x+11.1*cm, y+15.3*cm, x+11.1*cm, y+16.1*cm)
+  c.setFillColor(green)
+  c.line(x+10.4*cm, y+15.3*cm, x+10.4*cm, y+15.6*cm)
+  c.setFillColor(white)
+  c.line(x+10.4*cm, y+15.3*cm, x+10.4*cm, y+15.6*cm)
+  c.setFillColor(green)
   c.setFont("Tahoma", 7)
   c.drawCentredString(x+0.9*cm, y+15.8*cm, "HOURS")
   c.drawCentredString(x+3.1*cm, y+15.8*cm, "AMOUNT")
@@ -155,7 +165,10 @@ def template_wc(c, man_code):
   c.drawCentredString(x+8.3*cm, y+16.8*cm, "NON-CLAIMED DEALER EXPENSES")
   #8 
   c.setLineWidth(1)
-  c.grid([x, x+1.6*cm, x+2.7*cm, x+6.1*cm, x+7.6*cm, x+9.1*cm],[y+17.2*cm, y+18.2*cm])
+  # c.grid([x, x+1.6*cm, x+2.7*cm, x+6.1*cm, x+7.6*cm, x+9.1*cm],[y+17.2*cm, y+18.2*cm])
+  c.line(x+1.6*cm, y+17.2*cm, x+1.6*cm, y+18.2*cm)
+  c.line(x+2.7*cm, y+17.2*cm, x+2.7*cm, y+18.2*cm)
+  c.line(x+7.6*cm, y+17.2*cm, x+7.6*cm, y+18.2*cm)
   c.setFont("Tahoma", 7)
   c.drawCentredString(x+0.8*cm, y+17.9*cm, "MAKE")
   c.drawCentredString(x+2.2*cm, y+17.9*cm, "CAB")
@@ -186,13 +199,18 @@ def template_wc(c, man_code):
   c.drawCentredString(x+3.3*cm, y+19.5*cm, "FINDINGS/COMMENTS")
   c.drawCentredString(x+11.5*cm, y+19.5*cm, "FOR DEALER USE")
   #11.1 s/d 11.4
-  c.grid([x, x+2.7*cm, x+6.9*cm],[y+19.8*cm, y+20.6*cm])  # PART NO | PART NAME
-  c.grid([x+6.9*cm, x+8.2*cm],[y+19.8*cm, y+21.1*cm])     # DESC
-  c.grid([x+8.2*cm, x+10.5*cm, x+14.7*cm],[y+19.8*cm, y+20.6*cm]) # GROUP NO | GROUP NAME
-  c.grid([x+14.7*cm, x+18*cm],[y+19.8*cm, y+21.1*cm])
+  # c.grid([x, x+2.7*cm, x+6.9*cm],[y+19.8*cm, y+20.6*cm])  # PART NO | PART NAME
   c.setFillColor(green, 0.3)
+  c.setStrokeColor(white)
   c.rect(x+2.7*cm, y+19.8*cm, 4.2*cm, 0.8*cm, fill=1)
   c.rect(x+10.5*cm, y+19.8*cm, 4.2*cm, 0.8*cm, fill=1)
+  c.setStrokeColor(green)
+  c.setFillColor(green)
+  c.line(x+2.7*cm, y+19.8*cm, x+2.7*cm, y+20.6*cm)
+  c.grid([x+6.9*cm, x+8.2*cm],[y+19.8*cm, y+21.1*cm])     # DESC
+  # c.grid([x+8.2*cm, x+10.5*cm, x+14.7*cm],[y+19.8*cm, y+20.6*cm]) # GROUP NO | GROUP NAME
+  c.line(x+10.5*cm, y+19.8*cm, x+10.5*cm, y+20.6*cm)
+  c.grid([x+14.7*cm, x+18*cm],[y+19.8*cm, y+21.1*cm])
   c.setFillColor(green)
   c.setFont("Tahoma", 7)
   c.drawCentredString(x+1.4*cm, y+20.3*cm, "PART NO")
@@ -208,7 +226,8 @@ def template_wc(c, man_code):
   c.drawCentredString(x+7.5*cm, y+20.7*cm, "DESC")
   c.drawCentredString(x+11.5*cm, y+20.7*cm, "GROUP CONTAINING FAILED PART")
   #13
-  c.grid([x, x+1.9*cm, x+4.7*cm],[y+21.1*cm, y+21.9*cm])
+  # c.grid([x, x+1.9*cm, x+4.7*cm],[y+21.1*cm, y+21.9*cm])
+  c.line(x+1.9*cm, y+21.1*cm, x+1.9*cm, y+21.9*cm)
   c.setFont("Tahoma", 7)
   c.drawCentredString(x+0.9*cm, y+21.6*cm, "CODE")
   c.drawCentredString(x+3.3*cm, y+21.6*cm, "CLAIM NO")
@@ -219,6 +238,7 @@ def template_wc(c, man_code):
   c.drawCentredString(x+16.7*cm, y+21.7*cm, "HOURS")
   #14
   c.grid([x, x+4.7*cm, x+7.1*cm, x+10*cm, x+12.9*cm, x+15.3*cm, x+18*cm],[y+21.1*cm, y+22.4*cm])
+  c.line(x+12.1*cm, y+21.1*cm, x+12.1*cm, y+21.6*cm)
   c.setFont("Tahoma", 9)
   c.drawCentredString(x+2.4*cm, y+22*cm, "INITIAL DEALER")
   c.drawCentredString(x+5.9*cm, y+22*cm, "COVERAGE")
@@ -438,8 +458,11 @@ def convert_to_pdf(source_file, output_file, doc_type, wc_man_code):
               if lineNo > 30:
                 yy = yy-lineSpacing
                 canv.drawString(xx, yy, line[1:])
+              elif lineNo > 7:
+                yy = yy-lineSpacing*2
+                canv.drawString(xx, yy-0.6*cm, line[1:])
               else:
-                yy = yy-(lineSpacing*2)
+                yy = yy-lineSpacing*2
                 canv.drawString(xx, yy-0.3*cm, line[1:])
             if lastSymbol == '--':
               yy = yy-(lineSpacing*2)
@@ -523,7 +546,7 @@ def convert_to_pdf(source_file, output_file, doc_type, wc_man_code):
               canv.setFillColor(black)
               canv.setFont('Courier', 11)
               yy = yy-lineSpacing
-              canv.drawString(xx, yy-1*cm, line[1:])
+              canv.drawString(xx, yy-0.5*cm, line[1:])
           if lastSymbol == '-------':  # 7 strip
             canv.setFillColor(black)
             canv.setFont('Courier', 11)
