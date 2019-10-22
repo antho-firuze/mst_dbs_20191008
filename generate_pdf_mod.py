@@ -13,8 +13,7 @@ import os
 import os.path
 import pathlib
 import threading
-# from ftplib import FTP
-# from datetime import datetime
+import queue
 from calendar import monthrange
 from os.path import join, dirname
 from dotenv import load_dotenv
@@ -30,6 +29,7 @@ from reportlab.lib.colors import pink, black, red, blue, green, white
 #import itertools
 #from shutil import copyfile
 #os.chdir('/opt/dbs/convert/')
+my_queue = queue.Queue()
 
 # Load environment data from .env file
 dotenv_path = join(dirname(__file__), '.env')
@@ -348,9 +348,21 @@ def template_inv(c):
   c.setFont('Univers_LT_67_Condensed_Bold_Oblique', 8)
   c.drawCentredString(9.5*cm, -0.5*cm, strFooter2)
 
+def progrezz(t, msg, var=''):
+  eli_count = 0
+  while t.is_alive():
+    print(msg, '.'*(eli_count+1), ' '*(2-eli_count), end='\r')
+    eli_count = (eli_count + 1) % 3
+    time.sleep(0.1)
+  t.join()
+  if not var:
+    print(msg, '.....[Done]')
+  else:
+    print('{} {}.....[Done]'.format(msg, var))
+
 def save_log(strLog):
 	now = datetime.datetime.now()
-	directory = os.getenv('CONVERT_FOLDER_DEST') + '/Logs/' #+ path + '/'
+	directory = './Logs/'
 	if not os.path.exists(directory):
 		os.makedirs(directory)
 	f = open(directory + "LOG_" + now.strftime("%Y%m%d") + ".txt", "a+")
@@ -363,7 +375,13 @@ def hms_string(sec_elapsed):
     s = sec_elapsed % 60.
     return "{}:{:>02}:{:>05.2f}".format(h, m, s)
 
-def convert_to_pdf(source_file, output_file, doc_type, wc_man_code):
+def storeInQueue(f):
+  def wrapper(*args):
+    my_queue.put(f(*args))
+  return wrapper
+
+@storeInQueue
+def convert_to_pdf(source_file, output_file, doc_type, wc_man_code, deleteSource=False):
   canv = Canvas(output_file, pagesize=A4)
   
   if doc_type == 'INV':
@@ -580,10 +598,34 @@ def convert_to_pdf(source_file, output_file, doc_type, wc_man_code):
 
         lineNo += 1
         firstPage = False
+  
   try:
     canv.save()
+    if deleteSource:
+      deleteFile(source_file, True)
+
+    return True
+
   except Exception as e:
     exit('[+] ' + str(e))
+
+def deleteFile(fullFileName, dirDelete=False):
+  dirFile = os.path.dirname(fullFileName)
+  
+  if os.path.isfile(fullFileName):
+    os.remove(fullFileName)
+
+    if dirDelete:
+      if not os.listdir(dirFile):
+        os.rmdir(dirFile)
+
+    return True
+  else:
+    if dirDelete:
+      if not os.listdir(dirFile):
+        os.rmdir(dirFile)
+
+    return False
 
 def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
@@ -595,110 +637,141 @@ def add_months(sourcedate, months):
     day = min(sourcedate.day, monthrange(year,month)[1])
     return datetime.date(year, month, day)
 
-try:
-  # Start timer
-  start_datetime = datetime.datetime.now()
-  start_time = time.time()
-  # Document Type
-  doc_types = ['INV','WC']
-  # Period
-  period_f = datetime.date(2002,1,1)
-  period_t = datetime.date(2018,5,1)
-  months = diff_month(period_t, period_f)+1
-  periods = [datetime.datetime.strftime(add_months(period_f,x), "%Y%m") for x in range(months)]
-  numFile = 0
-  successFile = 0
-  errFile = 0
-  errDocType = 0
-  errDocNo = 0
-  errDocPeriod = 0
-  strLog = '=============================================================\n'
-  for root, dirs, files in os.walk(os.getenv('CONVERT_FOLDER_SOURCE')):
-    for file in files:
-      # filetype=*.txt
-      if file.lower().endswith(".txt"):
-        # Sanitize filename
-        filename = (file.upper()).replace('.TXT','')
-        filename = re.sub(r'\s', '', filename)
-        filename = re.sub(r'[-]', '_', filename)
-        filename = filename.split('_')
-        doc_type = filename[0]
-        doc_no = 'XXXXXX'
-        doc_period = '000000'
-        doc_period_ori = '00000000'
-        wc_man_code = ''
-        n = 0
-        for x in filename: 
-          if n > 0:
-            # WC_BB01234 -20180524_MT
-            doc_no = x if x.isalnum() and not x.isnumeric() and not x.isalpha() else doc_no
-            if x[:6] in periods:
-              doc_period = x[:6] 
-              doc_period_ori = x
-          n += 1
+def main():
+  argReplaceSkip = input('[R] Replace or [S] Skipped file already convert in destination [R/S], (Default: S)? ')
+  argReplaceSkip = argReplaceSkip.upper() if argReplaceSkip != '' else 'S'
+  if not argReplaceSkip in ('R','S'):
+    print('Option not valid')
+    sys.exit(1)
+  argDeleteSource = input('Delete source file after succeed [y/N], (Default: N)? ')
+  argDeleteSource = argDeleteSource.upper() if argDeleteSource != '' else 'N'
+  if not argDeleteSource in ('Y','N'):
+    print('Option not valid')
+    sys.exit(1)
+  else:
+    argDeleteSource = False if argDeleteSource == 'N' else True
+  # argPeriod = input('Input specific period or leave blank to using default [YYYYMM], (Default: 200201-201812)? ')
+  # argPeriod = argPeriod if argPeriod != '' else '999999'
+  # if not argPeriod.isnumeric():
+  #   print('Option not valid')
+  #   sys.exit(1)
+  # argDestination = input('Select destination: [1] Local, [2] AWS S3. [1/2], (Default: 1)? ')
+  # argDestination = argDestination if argDestination != '' else '1'
+  # if not argDestination in (1,2):
+  #   print('Option not valid')
+  #   sys.exit(1)
+  # print("{} {} {}".format(argDeleteSource,argPeriod,argDestination))
+  # sys.exit(1)
+  try:
+    # Start timer
+    start_datetime = datetime.datetime.now()
+    start_time = time.time()
+    # Document Type
+    doc_types = ['INV','WC']
+    # Period
+    period_f = datetime.date(2002,1,1)
+    period_t = datetime.date(2018,12,1)
+    months = diff_month(period_t, period_f)+1
+    periods = [datetime.datetime.strftime(add_months(period_f,x), "%Y%m") for x in range(months)]
+    numFile = 0
+    successFile = 0
+    errFile = 0
+    errDocType = 0
+    errDocNo = 0
+    errDocPeriod = 0
+    strLog = '=============================================================\n'
+    for root, dirs, files in os.walk(os.getenv('CONVERT_FOLDER_SOURCE')):
+      for file in files:
+        # filetype=*.txt
+        if file.lower().endswith(".txt"):
+          # Sanitize filename
+          filename = (file.upper()).replace('.TXT','')
+          filename = re.sub(r'\s', '', filename)
+          filename = re.sub(r'[-]', '_', filename)
+          filename = filename.split('_')
+          doc_type = filename[0]
+          doc_no = 'XXXXXX'
+          doc_period = '000000'
+          doc_period_ori = '00000000'
+          wc_man_code = ''
+          n = 0
+          for x in filename: 
+            if n > 0:
+              # WC_BB01234 -20180524_MT
+              doc_no = x if x.isalnum() and not x.isnumeric() and not x.isalpha() else doc_no
+              if x[:6] in periods:
+                doc_period = x[:6] 
+                doc_period_ori = x
+            n += 1
 
-        if doc_type in doc_types:
-          if doc_type == 'WC':
-            code = filename[-1]
-            wc_man_code = code if code.isalpha() and not code.isnumeric() else wc_man_code
+          if doc_type in doc_types:
+            if doc_type == 'WC':
+              code = filename[-1]
+              wc_man_code = code if code.isalpha() and not code.isnumeric() else wc_man_code
 
-          if doc_no != 'XXXXXX' and doc_period != '000000':
-            # For destination directory
-            directory = os.getenv('CONVERT_FOLDER_DEST') + '/'+ doc_type + '_' + doc_period + '/'
-            if not os.path.exists(directory):
-              os.makedirs(directory)
-            
-            source_file = root + '\\' + file
-            output_file = directory + '%s_%s_%s.pdf' % (doc_type, doc_no, doc_period_ori)
+            if doc_no != 'XXXXXX' and doc_period != '000000':
+              # For destination LOCAL
+              doc_type = doc_type.lower()
+              directory = os.getenv('CONVERT_FOLDER_DEST') + '/'+ doc_type + '-' + doc_period + '/'
+              if not os.path.exists(directory):
+                os.makedirs(directory)
+              
+              source_file = root + '\\' + file
+              output_file = directory + '%s_%s_%s.pdf' % (doc_type, doc_no, doc_period_ori)
 
-            # Check the file is exists
-            # if not os.path.isfile(output_file):
+              # Check the file is exists
+              if os.path.isfile(output_file) and argReplaceSkip == 'S':
+                if argDeleteSource:
+                  deleteFile(source_file)
+                continue
 
-            # EXECUTE THE PROCESS
-            threads = []
-            t = threading.Thread(target=convert_to_pdf, args=(source_file, output_file, doc_type, wc_man_code,))
-            threads.append(t)
-            t.start()
-            # convert_to_pdf(source_file, output_file, doc_type, wc_man_code)
+              # EXECUTE THE PROCESS
+              t = threading.Thread(target=convert_to_pdf, args=(source_file, output_file, doc_type, wc_man_code, argDeleteSource,))
+              t.start()
+              progrezz(t, 'Processing', file)
+              # results.append(my_queue.get())
 
-            successFile += 1
-          elif doc_no == 'XXXXXX':
-            strLog += '[+] File [{}] document no is error.\n'.format(file)
+              successFile += 1
+            elif doc_no == 'XXXXXX':
+              strLog += '[+] File [{}] document no is error.\n'.format(file)
+              errFile += 1
+              errDocNo += 1
+            elif doc_period == '000000':
+              strLog += '[+] File [{}] document period is error.\n'.format(file)
+              errFile += 1
+              errDocPeriod += 1
+          
+          else:
+            strLog += '[+] File [{}] document type is not registered.\n'.format(file)
             errFile += 1
-            errDocNo += 1
-          elif doc_period == '000000':
-            strLog += '[+] File [{}] document period is error.\n'.format(file)
-            errFile += 1
-            errDocPeriod += 1
-        
-        else:
-          strLog += '[+] File [{}] document type is not registered.\n'.format(file)
-          errFile += 1
-          errDocType += 1
+            errDocType += 1
 
-        numFile += 1
-        if numFile % 1000 == 0:
-          print('[+] {} files have been converted...'.format(numFile))
+          numFile += 1
+          if numFile % 1000 == 0:
+            print('[+] {} files have been converted...'.format(numFile))
 
 
-	# Get execution time
-  if errDocType > 0 or errDocNo > 0 or errDocPeriod > 0:
-    strLog += '\n'
-  strLog += '[+] Time start : {}\n'.format(start_datetime)
-  strLog += '[+] Total [*.txt] files : {}\n'.format(numFile)
-  strLog += '[+] Total files can be converted : {}\n'.format(successFile)
-  strLog += '[+] Total files cannot be converted : {}\n'.format(errFile)
-  if errDocType > 0:
-    strLog += '[+]   Error [doc_type] : {}\n'.format(errDocType)
-  if errDocNo > 0:
-    strLog += '[+]   Error [doc_no] : {}\n'.format(errDocNo)
-  if errDocPeriod > 0:
-    strLog += '[+]   Error [doc_period] : {}\n'.format(errDocPeriod)
-  strLog += '[+] Execution time for converting : {} seconds\n'.format(hms_string(time.time() - start_time))
-  strLog += '[+] Time finish : {}\n'.format(datetime.datetime.now())
-  save_log(strLog)			 
-  print(strLog)
-except Exception as e:
-	save_log("\n\nAn error occured...\n")
-	save_log(str(e))
-	print(e)
+    # Get execution time
+    if errDocType > 0 or errDocNo > 0 or errDocPeriod > 0:
+      strLog += '\n'
+    strLog += '[+] Time start : {}\n'.format(start_datetime)
+    strLog += '[+] Total [*.txt] files : {}\n'.format(numFile)
+    strLog += '[+] Total files can be converted : {}\n'.format(successFile)
+    strLog += '[+] Total files cannot be converted : {}\n'.format(errFile)
+    if errDocType > 0:
+      strLog += '[+]   Error [doc_type] : {}\n'.format(errDocType)
+    if errDocNo > 0:
+      strLog += '[+]   Error [doc_no] : {}\n'.format(errDocNo)
+    if errDocPeriod > 0:
+      strLog += '[+]   Error [doc_period] : {}\n'.format(errDocPeriod)
+    strLog += '[+] Execution time for converting : {} seconds\n'.format(hms_string(time.time() - start_time))
+    strLog += '[+] Time finish : {}\n'.format(datetime.datetime.now())
+    save_log(strLog)			 
+    print(strLog)
+  except Exception as e:
+    save_log("\n\nAn error occured...\n")
+    save_log(str(e))
+    print(e)
+
+if __name__ == '__main__':
+  main()

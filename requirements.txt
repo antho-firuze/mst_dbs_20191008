@@ -1,3 +1,5 @@
 reportlab==3.5.12
 pyodbc==4.0.24
 python-dotenv==0.10.0
+boto3
+awscli
