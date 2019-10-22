@@ -1,0 +1,107 @@
+1                                                                                                                                    
+-           N.P.W.P.: 02.025.873.7-091.000                                                                                           
+-                                                                                                                                    
+-                                                                                                                                    
+0       PT. KALTIM PRIMA COAL                                                                                                        
+        BAKRIE TOWER LANTAI 15 JL.HR.RASUNA SAID                                                                                     
+        KOMPLEKS RASUNA EPICENTRUM KARET KUNINGA                                                                                     
+        N SETIABUDI JAKARTA SELATAN    12940                                                                                         
+0  BRANCH: CRC SAMARINDA                                   NPWP: 01.000.278.0-091.000                                                
+    INVOICE NO   INV DATE  CUST NO   CUST ORDER NO        STORE  DIV  SLM  TERMS PAGE                                                
+    SI300001412  04-12-02  309089S   HT122707               30    G   077    2      1                                                
+    DOCUMENT NO  DOC DATE  PC   LC   MC   SHIP VIA                                                                                   
+    3000828      15-11-02  10   1A   10                                                                                              
+    MAKE   MODEL        SERIAL NO               EQUIP NO    METER READING  MACH ID NO                                                
+     AA    777B        04YC01355              T404                 1.0                                                               
+     QTY    ITEM             N/R DESCRIPTION               UNIT PRICE     EXTENSION                                                  
+0                          * * *     INVOICE DETAIL     * * *                                                                        
+-  REPAIR TRANSMISSION                                                                                                               
+0                                TOTAL PARTS         SEG. 01                4108.28 *                                                
+0                                                      F/R LBR              1620.00 *                                                
+                                                       F/R MSC               100.00 *                                                
+                                  SEGMENT 01 TOTAL                          5828.28 T                                                
+-     --------------------------------------------------------------------------------                                               
+0                           ***  TOTAL BEFORE TAXES                         5828.28                                                  
+                           * * *      INVOICE COPY      * * *                                                                        
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                      SUMMARY INVOICE WAS PRINTED FOR TOTAL OF -           5828.28  *                                               
+1                                                                                                                                    
+-           N.P.W.P.: 02.025.873.7-091.000                                                                                           
+-                                                                                                                                    
+-                                                                                                                                    
+0       PT. KALTIM PRIMA COAL                                                                                                        
+        BAKRIE TOWER LANTAI 15 JL.HR.RASUNA SAID                                                                                     
+        KOMPLEKS RASUNA EPICENTRUM KARET KUNINGA                                                                                     
+        N SETIABUDI JAKARTA SELATAN    12940                                                                                         
+0  BRANCH: CRC SAMARINDA                                   NPWP: 01.000.278.0-091.000                                                
+    INVOICE NO   INV DATE  CUST NO   CUST ORDER NO        STORE  DIV  SLM  TERMS PAGE                                                
+    SI300001412  04-12-02  309089S   HT122707               30    G   077    2      2                                                
+    DOCUMENT NO  DOC DATE  PC   LC   MC   SHIP VIA                                                                                   
+    3000828      15-11-02  10   1A   10                                                                                              
+    MAKE   MODEL        SERIAL NO               EQUIP NO    METER READING  MACH ID NO                                                
+     AA    777B        04YC01355              T404                 1.0                                                               
+     QTY    ITEM             N/R DESCRIPTION               UNIT PRICE     EXTENSION                                                  
+0                          * * *   INVOICE PARTS LIST   * * *                                                                        
+-                                SEGMENT 01 PARTS                                                                                    
+0     8  1D-4569              CAPSCREW          S               1.46          11.68                                                  
+      1  2D-8364              SEAL O RING       S              10.18          10.18                                                  
+      1  2H-3927              RING              S               1.96           1.96                                                  
+      1  2H-6184              SEAL              S               2.44           2.44                                                  
+      2  2M-9780              SEAL O RING       S                .70           1.40                                                  
+      2  2S-6160              WASHER            S                .95           1.90                                                  
+      1  3D-8241              SEAL-O-RING       S               9.67           9.67                                                  
+     10  3H-7654              WASHER            S                .24           2.40                                                  
+      1  3P-7447              PLATE             S             256.28         256.28                                                  
+      1  3T-2697              CLUTCH-HSG        S             848.64         848.64                                                  
+     20  4J-7533              SEAL O RING       S                .43           8.60                                                  
+      5  5F-7054              SEAL              S                .86           4.30                                                  
+      1  5F-9657              RING              S               1.31           1.31                                                  
+      1  5H-6005              SEAL-O-RING       S                .55            .55                                                  
+      2  6L-1648              SEAL O RING       S               4.70           9.40                                                  
+      3  6M-9613              BOLT              N               4.80          14.40                                                  
+      1  6T-5133              GASKET            S               1.32           1.32                                                  
+      2  6V-4365              SEAL-O-RING       S               2.31           4.62                                                  
+      1  6V-4509              BEARING A         S              15.72          15.72                                                  
+      5  6Y-7219              DISC              S             200.56        1002.80                                                  
+      1  7G-6373              GASKET            S              15.32          15.32                                                  
+      4  7M-8485              SEAL              S               1.02           4.08                                                  
+      2  8M-4438              SEAL O RING       S               1.46           2.92                                                  
+      1  8M-4446              SEAL O RIN        S               2.06           2.06                                                  
+-                                                                                                                                    
+                                                                         CONT'D                                                      
+1                                                                                                                                    
+-           N.P.W.P.: 02.025.873.7-091.000                                                                                           
+-                                                                                                                                    
+-                                                                                                                                    
+0       PT. KALTIM PRIMA COAL                                                                                                        
+        BAKRIE TOWER LANTAI 15 JL.HR.RASUNA SAID                                                                                     
+        KOMPLEKS RASUNA EPICENTRUM KARET KUNINGA                                                                                     
+        N SETIABUDI JAKARTA SELATAN    12940                                                                                         
+0  BRANCH: CRC SAMARINDA                                   NPWP: 01.000.278.0-091.000                                                
+    INVOICE NO   INV DATE  CUST NO   CUST ORDER NO        STORE  DIV  SLM  TERMS PAGE                                                
+    SI300001412  04-12-02  309089S   HT122707               30    G   077    2      3                                                
+    DOCUMENT NO  DOC DATE  PC   LC   MC   SHIP VIA                                                                                   
+    3000828      15-11-02  10   1A   10                                                                                              
+    MAKE   MODEL        SERIAL NO               EQUIP NO    METER READING  MACH ID NO                                                
+     AA    777B        04YC01355              T404                 1.0                                                               
+     QTY    ITEM             N/R DESCRIPTION               UNIT PRICE     EXTENSION                                                  
+0                          * * *   INVOICE PARTS LIST   * * *                                                                        
+0     1  8M-4988              SEAL O RIN        S               2.14           2.14                                                  
+      7  8M-5127              SEAL O RING       S               1.21           8.47                                                  
+      8  8M-5254              SEAL O RIN        S               2.50          20.00                                                  
+      4  8M-8157              SEAL O RING       S               1.15           4.60                                                  
+      2  8M-8515              SEAL O RING       S               2.12           4.24                                                  
+      1  8S-5575              SEAL              S               3.31           3.31                                                  
+      1  9P-7390              DISC A            S             140.82         140.82                                                  
+      1  9X-6555              KIT GASKET        S              81.20          81.20                                                  
+      1  102-8671             DISC              S             149.25         149.25                                                  
+      1  139-6177             GASKET KIT        S             716.22         716.22                                                  
+      4  169-7055             DISC              S             186.02         744.08                                                  
+0                                SEGMENT 01 PARTS TOTAL                     3572.34                                                  
+-                                                                                                                                    
+                                            TOTAL PARTS                     3572.34                                                  
+0                          * * *    END OF PARTS LIST   * * *                                                                        
+0                          * * *      INVOICE COPY      * * *                                                                        

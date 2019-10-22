@@ -1,0 +1,56 @@
+1                                                                                                                                    
+-           N.P.W.P.: 02.025.873.7-091.000                                                                                           
+-                                                                                                                                    
+-                                                                                                                                    
+0       PT. KELIAN EQUATORIAL MINING                                                                                                 
+        GEDUNG BRI LT.8 JL.JEND.SUDIRMAN NO.37                                                                                       
+        PO BOX 269, DAMAI - BALIKPAPAN SELATAN                                                                                       
+        BALIKPAPAN, KALTIM 76112                                                                                                     
+0  BRANCH: GRASSBERG - ECMP                                NPWP: 01.061.520.1-091.000                                                
+    INVOICE NO   INV DATE  CUST NO   CUST ORDER NO        STORE  DIV  SLM  TERMS PAGE                                                
+    SI840000393  16-12-02  8492931   LES BERTOSSI           84    G          2      1                                                
+    DOCUMENT NO  DOC DATE  PC   LC   MC   SHIP VIA                                                                                   
+    8402168      22-10-02  1Z   10   10                                                                                              
+    MAKE   MODEL        SERIAL NO               EQUIP NO    METER READING  MACH ID NO                                                
+     AA    5230        07LL00054              S-07             32865.0      TX0692-01                                                
+     QTY    ITEM             N/R DESCRIPTION               UNIT PRICE     EXTENSION                                                  
+0                          * * *     INVOICE DETAIL     * * *                                                                        
+-  INSPECT & MAINTAIN MACHINE                                                                                                        
+0   SUPPLY PARTS FOR MAINTENANCE & REPAIR S07 PERIOD                                                                                 
+    OF OCTOBER 2002                                                                                                                  
+    CHARGE PARTS(SEE TRAKINDO LISTING) = USD 46.51,-                                                                                 
+    REFER TO LES BERTOSSI INSTRUCTION.                                                                                               
+                                 TOTAL PARTS         SEG. 01                  46.51 *                                                
+0                                 SEGMENT 01 TOTAL                            46.51 T                                                
+-     --------------------------------------------------------------------------------                                               
+                                 LESS 5% CAP PROG                              2.33-T                                                
+0                           ***  TOTAL BEFORE TAXES                           44.18                                                  
+                           * * *      INVOICE COPY      * * *                                                                        
+-                                                                                                                                    
+-                                                                                                                                    
+-                                                                                                                                    
+-                      SUMMARY INVOICE WAS PRINTED FOR TOTAL OF -             44.18  *                                               
+1                                                                                                                                    
+-           N.P.W.P.: 02.025.873.7-091.000                                                                                           
+-                                                                                                                                    
+-                                                                                                                                    
+0       PT. KELIAN EQUATORIAL MINING                                                                                                 
+        GEDUNG BRI LT.8 JL.JEND.SUDIRMAN NO.37                                                                                       
+        PO BOX 269, DAMAI - BALIKPAPAN SELATAN                                                                                       
+        BALIKPAPAN, KALTIM 76112                                                                                                     
+0  BRANCH: GRASSBERG - ECMP                                NPWP: 01.061.520.1-091.000                                                
+    INVOICE NO   INV DATE  CUST NO   CUST ORDER NO        STORE  DIV  SLM  TERMS PAGE                                                
+    SI840000393  16-12-02  8492931   LES BERTOSSI           84    G          2      2                                                
+    DOCUMENT NO  DOC DATE  PC   LC   MC   SHIP VIA                                                                                   
+    8402168      22-10-02  1Z   10   10                                                                                              
+    MAKE   MODEL        SERIAL NO               EQUIP NO    METER READING  MACH ID NO                                                
+     AA    5230        07LL00054              S-07             32865.0      TX0692-01                                                
+     QTY    ITEM             N/R DESCRIPTION               UNIT PRICE     EXTENSION                                                  
+0                          * * *   INVOICE PARTS LIST   * * *                                                                        
+-                                SEGMENT 01 PARTS                                                                                    
+0     1  3E-8768              SWITCH A          S              46.51          46.51                                                  
+0                                SEGMENT 01 PARTS TOTAL                       46.51                                                  
+-                                                                                                                                    
+                                            TOTAL PARTS                       46.51                                                  
+0                          * * *    END OF PARTS LIST   * * *                                                                        
+0                          * * *      INVOICE COPY      * * *                                                                        
