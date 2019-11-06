@@ -1,0 +1,35 @@
+1                                                                        1                                                           
+-                                                                                                                                    
+                                                             X                                                                       
+-      J241     BA00250               D6G 2 XL      28OCT09             04NOV10                                                      
+-                                    0P6G01233      1016   H    1016 H      6.00                                                     
+0                                                                    1551027                                                         
+       8M-8515     SEAL O RING       25  7C-8992    GOVERNOR         DS150003907                                                     
+-       LEAKING                                                                                                                      
+-       AA          0P6G01233   100.00100.00  18.94                  L5E6608                                                         
+-                                                                                                                                    
+         .00        .00   .00       .00       .00          .00       .00 USD   2                                                     
+-                                                                                                                                    
+-                                                                                                                                    
+       P   1.00   5P-6620     SEAL O RING               .00          .00  USD  2                                                     
+       P   1.00   8J-8343     SEAL                      .00          .00  USD  2                                                     
+       P   1.00   8M-8515     SEAL O RING               .00          .00  USD  2                                                     
+       P   1.00   033-5879    RING                      .00          .00  USD  2                                                     
+       COMPLAINT:                                                                                                                    
+       FUEL WAS LEAKING FROM GOVERNOR                                                                                                
+       .                                                                                                                             
+       CAUSE:                                                                                                                        
+       ON INSPECTION FOUND THAT SEAL WAS CUT OFF DUE TO MATERIAL                                                                     
+       DEFECT.                                                                                                                       
+       .                                                                                                                             
+       CORRECTION:                                                                                                                   
+       REPLACED DAMAGE PART WITH NEW ONE. TESTED UNIT OPERATION OK.                                                                  
+       NOTE:                                                                                                                         
+       PROBLEM WAS KNOWN AT FIRST ON 04 OCTOBER 2010 BEFORE                                                                          
+       WARRANTY EXPIRED. PLEASE FIND OUR SCREENSHOT IN SIMSI                                                                         
+-                                       TOTAL CLAIM AMOUNT:               .00                                                        
+-          SETTLEMENTS:        SETTLEMENT NO       DATE      SETTLEMENT AMT                                                          
+                               C86SC 130216      23/12/10                 .00                                                        
+-                                                                                                                                    
+-            5.86        .00        .00        .00        .00   C86SC 130216                                                         
+0      P.T. TRAKINDO UTAMA                                             17DEC10                                                       

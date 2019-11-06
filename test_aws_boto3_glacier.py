@@ -78,24 +78,93 @@ def upload_archive(vault_name, src_data):
     # Return dictionary of archive information
     return archive
 
+def retrieve_inventory(vault_name):
+    """Initiate an Amazon Glacier inventory-retrieval job
+
+    To check the status of the job, call Glacier.Client.describe_job()
+    To retrieve the output of the job, call Glacier.Client.get_job_output()
+
+    :param vault_name: string
+    :return: Dictionary of information related to the initiated job. If error,
+    returns None.
+    """
+
+    # Construct job parameters
+    job_parms = {'Type': 'inventory-retrieval'}
+
+    # Initiate the job
+    glacier = boto3.client('glacier')
+    try:
+        response = glacier.initiate_job(vaultName=vault_name,
+                                        jobParameters=job_parms)
+    except ClientError as e:
+        logging.error(e)
+        return None
+    return response
+
+def retrieve_inventory_results(vault_name, job_id):
+    """Retrieve the results of an Amazon Glacier inventory-retrieval job
+
+    :param vault_name: string
+    :param job_id: string. The job ID was returned by Glacier.Client.initiate_job()
+    :return: Dictionary containing the results of the inventory-retrieval job.
+    If error, return None.
+    """
+
+    # Retrieve the job results
+    glacier = boto3.client('glacier')
+    try:
+        response = glacier.get_job_output(vaultName=vault_name, jobId=job_id)
+    except ClientError as e:
+        logging.error(e)
+        return None
+
+    # Read the streaming results into a dictionary
+    return json.loads(response['body'].read())
 
 def main():
-    """Exercise upload_archive()"""
+    test_vault_name = 'glacierdbs'
+    test_job_id = 'BkemD5KC4ckBnwbxDfQcuFk-9z6R4WYJGeqbZl4SgSWsB1r0tL_89-V3aOq7M7WKBWzvj_eYslaQRPFGV8JSrtjjUjWB'
 
-    # Assign these values before running the program
-    test_vault_name = 'INV_200212'
-    filename = './destination/INV_200212/INV_AR100004174_20021202.pdf'
-    # Alternatively, specify object contents using bytes.
-    # filename = b'This is the data to store in the Glacier archive.'
+    # # Set up logging
+    # logging.basicConfig(level=logging.DEBUG,
+    #                     format='%(levelname)s: %(asctime)s: %(message)s')
 
-    # Set up logging
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(levelname)s: %(asctime)s: %(message)s')
+    # # Initiate an inventory retrieval job
+    # response = retrieve_inventory(test_vault_name)
+    # if response is not None:
+    #     logging.info(f'Initiated inventory-retrieval job for {test_vault_name}')
+    #     logging.info(f'Retrieval Job ID: {response["jobId"]}')
 
-    # Upload the archive
-    archive = upload_archive(test_vault_name, filename)
-    if archive is not None:
-        logging.info(f'Archive {archive["archiveId"]} added to {test_vault_name}')
+    # # Set up logging
+    # logging.basicConfig(level=logging.DEBUG,
+    #                     format='%(levelname)s: %(asctime)s: %(message)s')
+
+    # Retrieve the job results
+    inventory = retrieve_inventory_results(test_vault_name, test_job_id)
+    if inventory is not None:
+        # Output some of the inventory information
+        logging.info(f'Vault ARN: {inventory["VaultARN"]}')
+        for archive in inventory['ArchiveList']:
+            logging.info(f'  Size: {archive["Size"]:6d}  '
+                         f'Archive ID: {archive["ArchiveId"]}')
+
+    # """Exercise upload_archive()"""
+
+    # # Assign these values before running the program
+    # test_vault_name = 'INV_200212'
+    # filename = './destination/INV_200212/INV_AR100004174_20021202.pdf'
+    # # Alternatively, specify object contents using bytes.
+    # # filename = b'This is the data to store in the Glacier archive.'
+
+    # # Set up logging
+    # logging.basicConfig(level=logging.DEBUG,
+    #                     format='%(levelname)s: %(asctime)s: %(message)s')
+
+    # # Upload the archive
+    # archive = upload_archive(test_vault_name, filename)
+    # if archive is not None:
+    #     logging.info(f'Archive {archive["archiveId"]} added to {test_vault_name}')
 
 
     # """ Exercise create_vault()"""

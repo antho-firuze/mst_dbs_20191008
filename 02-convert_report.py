@@ -1,15 +1,14 @@
 # ======================================================
-# Python Script for convertion (txt) file to (pdf) file 
+# Python Script for converting report (*.txt) => (*.pdf) 
 #
 # Created By  : Hertanto Purwanto
 # Email       : antho.firuze@gmail.com
 # Created at  : 2019-10-11
-# File name   : generate_pdf_mod.py
+# File name   : 02-convert_report.py
 # Version     : 1.2
 # ======================================================
 
-import datetime, time, sys, re
-import os
+import os, datetime, time, sys, re
 import os.path
 import pathlib
 import threading
@@ -25,15 +24,6 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.lib.colors import pink, black, red, blue, green, white
-#from multiprocessing import Pool
-#import itertools
-#from shutil import copyfile
-#os.chdir('/opt/dbs/convert/')
-my_queue = queue.Queue()
-
-# Load environment data from .env file
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
 
 # Register Font for using in reportlab
 pdfmetrics.registerFont(TTFont('Tahoma', 'font/Tahoma.ttf'))
@@ -45,6 +35,7 @@ pdfmetrics.registerFont(TTFont('Lucida_Console', 'font/Lucida_Console_Regular.tt
 
 # Declare Global Variables
 # ==========================
+my_queue = queue.Queue()
 
 # For Warranty Claim Report >> mapping manufacturing code 
 
@@ -88,6 +79,11 @@ wc_man_codes = {
   "WW":"WOODWARD",
   "YO":"YOUNG",
 }
+
+def loadEnv():
+  # Load environment data from .env file
+  dotenv_path = join(dirname(__file__), '.env')
+  load_dotenv(dotenv_path)
 
 def template_wc(c, man_code):
   c.translate(cm,cm)
@@ -353,12 +349,12 @@ def progrezz(t, msg, var=''):
   while t.is_alive():
     print(msg, '.'*(eli_count+1), ' '*(2-eli_count), end='\r')
     eli_count = (eli_count + 1) % 3
-    time.sleep(0.1)
+    # time.sleep(0.1)
   t.join()
   if not var:
-    print(msg, '.....[Done]')
+    print(f'{msg}.....[Done]')
   else:
-    print('{} {}.....[Done]'.format(msg, var))
+    print(f'{msg} {var}.....[Done]')
 
 def save_log(strLog):
 	now = datetime.datetime.now()
@@ -384,7 +380,10 @@ def storeInQueue(f):
 def convert_to_pdf(source_file, output_file, doc_type, wc_man_code, deleteSource=False):
   canv = Canvas(output_file, pagesize=A4)
   
-  if doc_type == 'INV':
+  # print(source_file, output_file, doc_type, wc_man_code)
+  # return True
+
+  if doc_type.lower() == 'inv':
     xx = -0.5*cm
     initY = yy = 24*cm
     lineSpacing = 0.5*cm
@@ -443,7 +442,7 @@ def convert_to_pdf(source_file, output_file, doc_type, wc_man_code, deleteSource
         lineNo += 1
         firstPage = False
 
-  elif doc_type == 'WC':
+  elif doc_type.lower() == 'wc':
     xx = -0.5*cm
     initY = yy = 27*cm
     lineSpacing = 0.5*cm
@@ -638,6 +637,9 @@ def add_months(sourcedate, months):
     return datetime.date(year, month, day)
 
 def main():
+
+  loadEnv()
+
   argReplaceSkip = input('[R] Replace or [S] Skipped file already convert in destination [R/S], (Default: S)? ')
   argReplaceSkip = argReplaceSkip.upper() if argReplaceSkip != '' else 'S'
   if not argReplaceSkip in ('R','S'):
@@ -704,8 +706,8 @@ def main():
                 doc_period_ori = x
             n += 1
 
-          if doc_type in doc_types:
-            if doc_type == 'WC':
+          if doc_type.upper() in doc_types:
+            if doc_type.upper() == 'WC':
               code = filename[-1]
               wc_man_code = code if code.isalpha() and not code.isnumeric() else wc_man_code
 
@@ -726,9 +728,10 @@ def main():
                 continue
 
               # EXECUTE THE PROCESS
+              # convert_to_pdf(source_file, output_file, doc_type, wc_man_code, argDeleteSource)
               t = threading.Thread(target=convert_to_pdf, args=(source_file, output_file, doc_type, wc_man_code, argDeleteSource,))
               t.start()
-              progrezz(t, 'Processing', file)
+              # progrezz(t, 'Processing', file)
               # results.append(my_queue.get())
 
               successFile += 1

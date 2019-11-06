@@ -242,7 +242,7 @@ def get_object(bucket_name, object_name):
     return response['Body']
 
 def main():
-  bucket = 'inv-200212'
+  bucket = 'mst-dbsarchiving'
   # create_bucket(bucket,'ap-southeast-1')
   print(list_bucket_objects(bucket))
   # delete_bucket(bucket)

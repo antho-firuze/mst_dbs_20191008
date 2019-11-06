@@ -19,3 +19,195 @@
 [+] Total files cannot be converted : 0
 [+] Execution time for converting : 0:00:01.11 seconds
 [+] Time finish : 2019-10-22 07:10:30.859064
+=============================================================
+[+] Time start : 2019-10-22 10:19:14.730731
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:01.22 seconds
+[+] Time finish : 2019-10-22 10:19:15.952983
+=============================================================
+[+] Time start : 2019-10-22 10:20:30.810210
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.14 seconds
+[+] Time finish : 2019-10-22 10:20:30.949689
+=============================================================
+[+] Time start : 2019-10-22 10:22:34.674370
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.04 seconds
+[+] Time finish : 2019-10-22 10:22:34.715329
+=============================================================
+[+] Time start : 2019-10-22 10:22:50.108177
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.05 seconds
+[+] Time finish : 2019-10-22 10:22:50.155279
+=============================================================
+[+] Time start : 2019-10-22 10:23:21.123280
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.03 seconds
+[+] Time finish : 2019-10-22 10:23:21.151949
+=============================================================
+[+] Time start : 2019-10-22 10:24:27.586485
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.03 seconds
+[+] Time finish : 2019-10-22 10:24:27.613739
+=============================================================
+[+] Time start : 2019-10-22 10:27:09.319163
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.02 seconds
+[+] Time finish : 2019-10-22 10:27:09.342102
+=============================================================
+[+] Time start : 2019-10-22 10:27:56.071251
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.03 seconds
+[+] Time finish : 2019-10-22 10:27:56.098178
+=============================================================
+[+] Time start : 2019-10-22 10:29:26.217856
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.03 seconds
+[+] Time finish : 2019-10-22 10:29:26.250771
+=============================================================
+[+] Time start : 2019-10-22 10:30:29.011049
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.00 seconds
+[+] Time finish : 2019-10-22 10:30:29.016035
+=============================================================
+[+] Time start : 2019-10-22 10:31:56.508880
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.78 seconds
+[+] Time finish : 2019-10-22 10:31:57.288796
+=============================================================
+[+] Time start : 2019-10-22 10:34:23.084688
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:01.12 seconds
+[+] Time finish : 2019-10-22 10:34:24.205692
+=============================================================
+[+] Time start : 2019-10-22 10:34:42.784044
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.08 seconds
+[+] Time finish : 2019-10-22 10:34:42.867820
+=============================================================
+[+] Time start : 2019-10-22 10:37:11.449935
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.43 seconds
+[+] Time finish : 2019-10-22 10:37:11.879786
+=============================================================
+[+] Time start : 2019-10-22 10:37:34.556138
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:01.30 seconds
+[+] Time finish : 2019-10-22 10:37:35.853703
+=============================================================
+[+] Time start : 2019-10-22 10:38:41.465246
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:01.08 seconds
+[+] Time finish : 2019-10-22 10:38:42.546361
+=============================================================
+[+] Time start : 2019-10-22 10:41:44.668343
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.97 seconds
+[+] Time finish : 2019-10-22 10:41:45.640745
+=============================================================
+[+] Time start : 2019-10-22 11:01:48.292501
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.06 seconds
+[+] Time finish : 2019-10-22 11:01:48.354333
+=============================================================
+[+] Time start : 2019-10-22 11:11:20.208603
+[+] Total [*.txt] files : 11
+[+] Total files can be sync : 0
+[+] Total files cannot be sync : 0
+[+] Execution time for synchronize : 0:00:00.03 seconds
+[+] Time finish : 2019-10-22 11:11:20.238523
+=============================================================
+[+] Time start : 2019-10-22 11:15:58.469588
+[+] Total [*.txt] files : 11
+[+] Total files can be sync : 0
+[+] Total files cannot be sync : 0
+[+] Execution time for synchronize : 0:00:00.03 seconds
+[+] Time finish : 2019-10-22 11:15:58.497513
+=============================================================
+[+] Time start : 2019-10-22 11:17:23.140114
+[+] Total [*.txt] files : 11
+[+] Total files can be sync : 0
+[+] Total files cannot be sync : 0
+[+] Execution time for synchronize : 0:00:00.02 seconds
+[+] Time finish : 2019-10-22 11:17:23.162056
+=============================================================
+[+] Time start : 2019-10-22 11:18:23.052614
+[+] Total [*.txt] files : 11
+[+] Total files can be sync : 11
+[+] Total files cannot be sync : 0
+[+] Execution time for synchronize : 0:00:24.87 seconds
+[+] Time finish : 2019-10-22 11:18:47.918570
+=============================================================
+[+] Time start : 2019-10-22 13:19:00.167025
+[+] Total [*.txt] files : 11
+[+] Total files can be sync : 11
+[+] Total files cannot be sync : 0
+[+] Execution time for synchronize : 0:00:30.90 seconds
+[+] Time finish : 2019-10-22 13:19:31.066820
+=============================================================
+[+] Time start : 2019-10-22 13:20:11.669456
+[+] Total [*.txt] files : 0
+[+] Total files can be converted : 0
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.00 seconds
+[+] Time finish : 2019-10-22 13:20:11.672488
+=============================================================
+[+] Time start : 2019-10-22 13:20:20.870867
+[+] Total [*.txt] files : 11
+[+] Total files can be converted : 11
+[+] Total files cannot be converted : 0
+[+] Execution time for converting : 0:00:00.06 seconds
+[+] Time finish : 2019-10-22 13:20:20.926716
+=============================================================
+[+] Time start : 2019-10-22 14:25:51.075721
+[+] Total [*.txt] files : 11
+[+] Total files can be sync : 11
+[+] Total files cannot be sync : 0
+[+] Execution time for synchronize : 0:00:39.25 seconds
+[+] Time finish : 2019-10-22 14:26:30.321840
+
+
+An error occured...
+name 'folder' is not defined=============================================================
+[+] Time start : 2019-10-22 17:08:17.518738
+[+] Total [*.txt] files : 11
+[+] Total files can be sync : 11
+[+] Total files cannot be sync : 0
+[+] Execution time for synchronize : 0:00:23.09 seconds
+[+] Time finish : 2019-10-22 17:08:40.606414

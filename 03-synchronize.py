@@ -1,29 +1,40 @@
 # ======================================================
-# Python Script for synchronize file to AWS S3 Cloud Server 
+# Python Script for :
+# - Synchronize report *.pdf from [destination_folder] to [AWS_S3]
+# - Get meta-link from [AWS_S3], insert into MSSQL [10.2.8.40|DBS_TU]
 #
 # Created By  : Hertanto Purwanto
 # Email       : antho.firuze@gmail.com
 # Created at  : 2019-10-18
-# File name   : sync_to_aws_s3.py
+# File name   : 03-synchronize.py
 # Version     : 1.0
 # ======================================================
 
-import boto3
 import os, datetime, time, sys, re
 import os.path
 import pathlib
 import threading
 import logging
 import queue
+import pyodbc
+import boto3
 from os.path import join, dirname
 from dotenv import load_dotenv
 from botocore.exceptions import ClientError
 
 my_queue = queue.Queue()
+conn = pyodbc.connect('Driver={SQL Server};'
+                      'Server=10.2.4.198;'
+                      'Database=DBS_TU;'
+                      'uid=DBSTU1;pwd=DBSTU1;')
+cursor = conn.cursor()
 
 # Load environment data from .env file
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
+
+bucket_name = 'mst-dbsarchiving'
+region_name = 'ap-southeast-1'
 
 def storeInQueue(f):
   def wrapper(*args):
@@ -38,9 +49,9 @@ def progrezz(t, msg, var=''):
     time.sleep(0.1)
   t.join()
   if not var:
-    print(msg, '.....[Done]')
+    print(f'{msg}.....[Done]')
   else:
-    print('{} {}.....[Done]'.format(msg, var))
+    print(f'{msg} {var}.....[Done]')
 
 def save_log(strLog):
 	now = datetime.datetime.now()
@@ -124,7 +135,7 @@ def create_bucket(bucket_name, region=None):
             s3_client.create_bucket(Bucket=bucket_name,
                                     CreateBucketConfiguration=location)
     except ClientError as e:
-        logging.error(e)
+        # logging.error(e)
         return False
     return True
 
@@ -173,6 +184,7 @@ def put_object(dest_bucket_name, dest_object_name, src_data):
 @storeInQueue
 def synchronize(folder, file, f, deleteSource=False):
   if put_object(folder, file, f):
+
     if deleteSource:
       deleteFile(f, True)
 
@@ -198,40 +210,40 @@ def main():
     errFile = 0
     strLog = '=============================================================\n'
     source_dir = os.getenv('CONVERT_FOLDER_DEST')
-    a = [ name for name in os.listdir(source_dir) if os.path.isdir(os.path.join(source_dir, name)) ]
-    # b = list_bucket()
-    t = threading.Thread(target=list_bucket, args=())
+    t = threading.Thread(target=create_bucket, args=(bucket_name, region_name,))
     t.start()
-    progrezz(t, 'Sync Folder')
-    b = my_queue.get()
+    # a = [ name for name in os.listdir(source_dir) if os.path.isdir(os.path.join(source_dir, name)) ]
+    # t = threading.Thread(target=list_bucket, args=())
+    # t.start()
+    # progrezz(t, 'Sync Folder')
+    # b = my_queue.get()
 
-    # print(a)
-    # print(b)
-    for dir in a:
-      if not dir in b:
-        region = 'ap-southeast-1'
-        t = threading.Thread(target=create_bucket, args=(dir, region,))
-        t.start()
-        progrezz(t, 'Create Folder', dir)
+    # for dir in a:
+    #   if not dir in b:
+    #     region = 'ap-southeast-1'
+    #     t = threading.Thread(target=create_bucket, args=(dir, region,))
+    #     t.start()
+    #     progrezz(t, 'Create Folder', dir)
 
-        # print('Create Folder [{}].....[Done]'.format(dir))
-        # if create_bucket(dir, 'ap-southeast-1'):
-        #   print('Bucket [{}] has been created'.format(dir))
-        # else:
-        #   print('Bucket [{}] cannot be create'.format(dir))
-        #   sys.exit(1)
-
-    for root, dirs, files in os.walk(os.getenv('CONVERT_FOLDER_DEST')):
+    for root, dirs, files in os.walk(source_dir):
       for file in files:
         fld = root.split('\\')[-1]
         if fld != 'destination':
           numFile += 1
           f = root + '\\' + file
 
-          t = threading.Thread(target=synchronize, args=(fld, file, f, argDeleteSource,))
+          # print(bucket, fld.replace('-','/')+'/'+file, f)
+          object_name = fld.replace('-','/')+'/'+file
+          t = threading.Thread(target=synchronize, args=(bucket_name, object_name, f, argDeleteSource,))
           t.start()
           progrezz(t, 'Sync File', file)
           if my_queue.get():
+            ff = file.split('_')
+            link = f'https://{bucket_name}.s3-{region_name}.amazonaws.com/{object_name}'
+            qry = f"insert into [mst-dbsarchiving] (type,doc_no,link) values('{ff[0]}','{ff[1]}','{link}')"
+            cursor.execute(qry)
+            conn.commit()
+
             successFile += 1
           else:
             errFile += 1
